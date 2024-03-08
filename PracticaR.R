@@ -20,3 +20,10 @@ mean(Sample1)
 #PREGUNTA 5
 # Calcular el tercer cuartil (Q3)
 quantile(Sample1, 0.75)
+#PREGUNTA 6
+# Calcular el valor máximo
+max(Sample1)
+#PREGUNTA 7
+# Calcular el coeficiente de asimetría (skewness)
+skewness(Sample1)
+
