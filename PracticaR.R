@@ -26,4 +26,30 @@ max(Sample1)
 #PREGUNTA 7
 # Calcular el coeficiente de asimetría (skewness)
 skewness(Sample1)
+#PREGUNTA 8
+# Calcular el coeficiente de apuntamiento (curtosis)
+kurtosis(Sample1)
+#PREGUNTA 9
+# Ajustar los datos a una distribución normal
+fit <- fitdistr(Sample1, "normal")
+# Obtener el estimador de la media
+fit$estimate["mean"]
+#PREGUNTA 10
+# Obtener el estimador de la desviación típica
+fit$estimate["sd"]
+#PREGUNTA 11
+# Obtener los parámetros estimados de la distribución normal
+mu <- fit$estimate["mean"]
+sigma <- fit$estimate["sd"]
+# Realizar el test de Kolmogorov-Smirnov
+ks_result <- ks.test(Sample1, "pnorm", mean = mu, sd = sigma)
+# Obtener el p-valor
+ks_result$p.value
+#PREGUNTA 12
+# Ajustar los datos a una distribución exponencial
+fit <- fitdistr(Sample1, "exponential")
+
+# Obtener el estimador de la tasa lambda
+fit$estimate["rate"]
+
 
