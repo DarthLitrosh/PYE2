@@ -53,3 +53,11 @@ fit <- fitdistr(Sample1, "exponential")
 fit$estimate["rate"]
 
 
+# PREGUNTA 13
+# Estimar el parámetro lambda
+lambda_estimado <- 1/mean(Sample1)
+# Realizar la prueba KS para una distribución exponencial
+ks_resultado <- ks.test(Sample1, "pexp", lambda_estimado)
+# Mostrar el valor 
+ks_resultado$p.value
+
