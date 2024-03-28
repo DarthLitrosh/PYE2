@@ -10,6 +10,7 @@ library(EstimationTools)
 library(boot)
 library(survival)
 library(TeachingDemos)
+library(boot)
 
 # Definir la muestra de datos
 Sample1 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
@@ -327,3 +328,29 @@ print(varianza_estimada)
 
 
 #PREGUNTA 37
+
+#PREGUNTA 38
+
+#PREGUNTA 39
+
+#PREGUNTA 40
+
+#PREGUNTA 41
+# Función para calcular la media
+meanFunc <- function(data, indices) {
+  return(mean(data[indices]))
+}
+
+# Configurar el seed para reproducibilidad
+set.seed(2023)
+
+# Aplicar Bootstrap para calcular el IC de la media
+bootResult <- boot(sample1, statistic = meanFunc, R = 1000)
+
+# Calcular el intervalo de confianza del 95% usando el método normal
+bootCI <- boot.ci(bootResult, conf = 0.95, type = "norm")
+
+# Mostrar el límite inferior del IC
+bootCI$normal[2]
+
+#PREGUNTA 42
