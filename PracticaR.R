@@ -135,6 +135,7 @@ print(mle_mean)
 sample_sd <- sd(Sample1)
 
 # Mostrar el resultado
+
 print(sample_sd)
 
 #PREGUNTA 22
