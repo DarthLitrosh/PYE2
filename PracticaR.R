@@ -9,6 +9,8 @@ library(rcompanion)
 library(EstimationTools)
 library(boot)
 library(survival)
+library(TeachingDemos)
+
 # Definir la muestra de datos
 Sample1 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
 Sample2 <- c("Municipal", "Municipal", "Municipal", "Political Subdivision", "Municipal", "Municipal", "Municipal", "Municipal", "Behind the Meter", "Municipal", "Municipal", "Municipal", "Retail Power Marketer", "Municipal", "Investor Owned", "Cooperative", "Cooperative", "Municipal", "Municipal", "Municipal")
@@ -231,3 +233,96 @@ media_estimada <- mean(Sample1)
 
 # Mostrar el resultado
 print(media_estimada)
+
+
+#PREGUNTA 30
+# Realizar un t-test para obtener el intervalo de confianza de la media
+resultado_t_test <- t.test(Sample1)
+
+# Extraer el límite inferior del intervalo de confianza del 95%
+limite_inferior_ic <- resultado_t_test$conf.int[1]
+
+# Imprimir el resultado
+print(limite_inferior_ic)
+
+
+#PREGUNTA 31
+# Realizar un t-test para obtener el intervalo de confianza de la media
+resultado_t_test <- t.test(Sample1)
+
+# Extraer el límite superior del intervalo de confianza del 95%
+limite_superior_ic <- resultado_t_test$conf.int[2]
+
+# Imprimir el resultado
+print(limite_superior_ic)
+
+
+#PREGUNTA 32
+# Realizar un z-test asumiendo que la desviación estándar de la muestra es una estimación de la población
+z_test_result <- z.test(Sample1, stdev = sd(Sample1))
+
+# Obtener el p-valor del z-test
+p_valor <- z_test_result$p.value
+
+# Imprimir el p-valor
+print(p_valor)
+
+#PREGUNTA 33
+# Calcular la media muestral
+media_estimada <- mean(Sample1)
+
+# Imprimir la media estimada
+print(media_estimada)
+
+
+#PREGUNTA 34
+# Tamaño de la muestra
+n <- length(Sample1)
+
+# Varianza muestral
+s2 <- var(Sample1)
+
+# Nivel de significancia
+alpha <- 0.05
+
+# Cuantiles de la distribución chi-cuadrada para los límites del IC
+chi2_lower <- qchisq(alpha / 2, df = n - 1, lower.tail = TRUE)
+chi2_upper <- qchisq(1 - alpha / 2, df = n - 1)
+
+# Límite inferior del intervalo de confianza para la varianza
+variance_lower_bound <- ((n - 1) * s2) / chi2_upper
+
+# Imprimir el límite inferior del intervalo de confianza para la varianza
+print(variance_lower_bound)
+
+
+#PREGUNTA 35
+# Tamaño de la muestra
+n <- length(Sample1)
+
+# Varianza muestral
+s2 <- var(Sample1)
+
+# Nivel de significancia
+alpha <- 0.05
+
+# Cuantiles de la distribución chi-cuadrada para los límites del IC
+chi2_lower <- qchisq(alpha / 2, df = n - 1)
+chi2_upper <- qchisq(1 - alpha / 2, df = n - 1, lower.tail = TRUE)
+
+# Límite superior del intervalo de confianza para la varianza
+variance_upper_bound <- ((n - 1) * s2) / chi2_lower
+
+# Imprimir el límite superior del intervalo de confianza para la varianza
+print(variance_upper_bound)
+
+
+#PREGUNTA 36
+# Calcular la varianza muestral
+varianza_estimada <- var(Sample1)
+
+# Imprimir la varianza estimada
+print(varianza_estimada)
+
+
+#PREGUNTA 37
