@@ -387,3 +387,24 @@ meanEstimate <- bootResult$t0
 
 # Mostrar la media estimada
 meanEstimate
+
+
+#PREGUNTA 44
+# Definir la función para calcular la varianza
+varFunc <- function(data, indices) {
+  return(var(data[indices]))
+}
+
+# Configurar el seed para reproducibilidad
+set.seed(2023)
+
+# Asegúrate de tener el conjunto de datos 'sample1' definido antes de continuar
+
+# Aplicar el método Bootstrap para calcular la distribución de la varianza muestral
+bootResultVar <- boot(sample1, statistic = varFunc, R = 1000)
+
+# Calcular el intervalo de confianza del 95% usando el método normal
+bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "norm")
+
+# Mostrar el límite inferior del intervalo de confianza del 95% para la varianza
+bootCIVar$normal[2]
