@@ -354,3 +354,23 @@ bootCI <- boot.ci(bootResult, conf = 0.95, type = "norm")
 bootCI$normal[2]
 
 #PREGUNTA 42
+
+# Número de re-muestreos Bootstrap
+bootR <- 1000
+
+# Establecer semilla para reproducibilidad
+set.seed(2023)
+
+# Función para calcular la media
+boot.mean <- function(data, indices) {
+  mean(data[indices])
+}
+
+# Realizar el Bootstrap
+boot.results <- boot(data=Sample1, statistic=boot.mean, R=bootR)
+
+# Calcular el intervalo de confianza del 95% para la media con el método percentil
+boot.ci(boot.results, conf=0.95, type="perc")
+
+#PREGUNTA 43
+
