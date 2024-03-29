@@ -411,4 +411,33 @@ bootCIVar$normal[2]
 
 
 #PREGUNTA 45
+#PREGUNTA 46
+#PREGUNTA 47
+#PREGUNTA 48
+
+#PREGUNTA 49
+# Convertir a un vector binario donde 1 representa "Municipal" y 0 cualquier otra categoría
+Sample2_binary <- as.numeric(Sample2 == "Municipal")
+
+# Número de re-muestreos Bootstrap
+bootR <- 1000
+
+# Establecer semilla para reproducibilidad
+set.seed(2023)
+
+# Función para calcular la proporción de "Municipal"
+boot.prop <- function(data, indices) {
+  sum(data[indices]) / length(indices)
+}
+
+# Realizar el Bootstrap
+boot.results <- boot(data=Sample2_binary, statistic=boot.prop, R=bootR)
+
+# Estimar la proporción
+proporcion_estimada <- mean(boot.results$t)
+
+# Mostrar la proporción estimada
+proporcion_estimada
+
+#PREGUNTA 50
 
