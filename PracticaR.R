@@ -434,6 +434,29 @@ bootCIVar$bca[5]
 
 #PREGUNTA 46
 #PREGUNTA 47
+# Cargar la librería necesaria
+library(boot)
+
+# Asegurar que la función para calcular la proporción está definida
+# Asumiendo que propMunicipalFunc ya está definida como se discutió
+
+# Configurar el seed para reproducibilidad
+set.seed(2023)
+
+# Asegúrate de que 'Sample2' está definido y es apropiado para tu análisis
+
+# Aplicar el método Bootstrap para estimar la proporción de "Municipal"
+bootResultProp <- boot(Sample2, statistic = propMunicipalFunc, R = 1000)
+
+# Calcular el intervalo de confianza del 95% usando el método normal (norm)
+bootCIPropNorm <- boot.ci(bootResultProp, conf = 0.95, type = "norm")
+
+# Mostrar el límite inferior del intervalo de confianza del 95% con 'norm'
+limite_inferior_norm <- bootCIPropNorm$normal[2]
+
+limite_inferior_norm
+
+
 #PREGUNTA 48
 
 #PREGUNTA 49
