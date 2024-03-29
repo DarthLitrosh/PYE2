@@ -373,4 +373,17 @@ boot.results <- boot(data=Sample1, statistic=boot.mean, R=bootR)
 boot.ci(boot.results, conf=0.95, type="perc")
 
 #PREGUNTA 43
+meanFunc <- function(data, indices) {
+  return(mean(data[indices]))
+}
+# Configurar el seed para reproducibilidad
+set.seed(2023)
 
+# Aplicar el método Bootstrap para estimar la media de sample1
+bootResult <- boot(sample1, statistic = meanFunc, R = 1000)
+
+# La media estimada se puede obtener directamente de la estadística original del resultado bootstrap
+meanEstimate <- bootResult$t0
+
+# Mostrar la media estimada
+meanEstimate
