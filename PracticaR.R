@@ -572,3 +572,24 @@ p_value <- t_test_result$p.value
 
 # Imprimimos el p-valor
 print(p_value)
+
+
+#PREGUNTA 53
+# Convertir Sample2 en un factor para facilitar el análisis
+Sample2 <- factor(Sample2)
+
+# Crear un data.frame para facilitar el análisis
+data <- data.frame(Sample1, Sample2)
+
+# Dividir Sample1 en dos grupos: Municipal vs No Municipal
+municipal_values <- data$Sample1[data$Sample2 == "Municipal"]
+no_municipal_values <- data$Sample1[data$Sample2 != "Municipal"]
+
+# Realizar el Test t para muestras independientes
+t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = FALSE)
+
+# Extraer la diferencia de medias estimada
+mean_difference <- t_test_result$estimate[1] - t_test_result$estimate[2]
+
+# Imprimir la diferencia de medias estimada
+print(mean_difference)
