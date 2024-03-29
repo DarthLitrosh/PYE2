@@ -408,3 +408,7 @@ bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "norm")
 
 # Mostrar el límite inferior del intervalo de confianza del 95% para la varianza
 bootCIVar$normal[2]
+
+
+#PREGUNTA 45
+
