@@ -536,6 +536,25 @@ lower_bound <- t_test_result$conf.int[1]
 print(lower_bound)
 
 #PREGUNTA 51
+# Convertir Sample2 en un factor para facilitar el análisis
+Sample2 <- factor(Sample2)
+
+# Crear un data.frame para facilitar el análisis
+data <- data.frame(Sample1, Sample2)
+
+# Dividir Sample1 en dos grupos: Municipal vs No Municipal
+municipal_values <- data$Sample1[data$Sample2 == "Municipal"]
+no_municipal_values <- data$Sample1[data$Sample2 != "Municipal"]
+
+# Realizar el Test t para muestras independientes
+t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = FALSE)
+
+# Extraer el valor superior del intervalo de confianza del 95%
+upper_ci_value <- t_test_result$conf.int[2]
+
+# Imprimir el resultado
+print(upper_ci_value)
+
 
 #PREGUNTA 52
 
