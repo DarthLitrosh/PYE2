@@ -519,4 +519,23 @@ proporcion_estimada <- mean(boot.results$t)
 proporcion_estimada
 
 #PREGUNTA 50
+# Convertimos Sample2 en un vector lógico indicando si cada elemento es "Municipal"
+is_municipal <- Sample2 == "Municipal"
+
+# Separamos Sample1 en dos grupos basados en la clasificación de Municipal vs. No Municipal
+sample1_municipal <- Sample1[is_municipal]
+sample1_no_municipal <- Sample1[!is_municipal]
+
+# Realizamos la prueba t de Welch para la diferencia de medias (var.equal = FALSE por defecto)
+t_test_result <- t.test(sample1_municipal, sample1_no_municipal)
+
+# Extraemos el valor inferior del intervalo de confianza del 95%
+lower_bound <- t_test_result$conf.int[1]
+
+# Imprimimos el resultado
+print(lower_bound)
+
+#PREGUNTA 51
+
+#PREGUNTA 52
 
