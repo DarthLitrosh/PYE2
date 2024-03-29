@@ -557,4 +557,18 @@ print(upper_ci_value)
 
 
 #PREGUNTA 52
+# Convertimos Sample2 en un vector lógico indicando si cada elemento es "Municipal"
+is_municipal <- Sample2 == "Municipal"
 
+# Separamos Sample1 en dos grupos basados en la clasificación de Municipal vs. No Municipal
+sample1_municipal <- Sample1[is_municipal]
+sample1_no_municipal <- Sample1[!is_municipal]
+
+# Realizamos la prueba t de Welch para la diferencia de medias
+t_test_result <- t.test(sample1_municipal, sample1_no_municipal)
+
+# Extraemos el p-valor de la prueba t
+p_value <- t_test_result$p.value
+
+# Imprimimos el p-valor
+print(p_value)
