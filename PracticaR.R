@@ -411,6 +411,27 @@ bootCIVar$normal[2]
 
 
 #PREGUNTA 45
+# Cargar la librería necesaria
+library(boot)
+
+# Definir la función para calcular la varianza de los datos seleccionados
+varFunc <- function(data, indices) {
+  return(var(data[indices]))
+}
+
+# Configurar el seed para reproducibilidad
+set.seed(2023)
+
+# Aplicar el método Bootstrap para calcular la distribución de la varianza muestral
+bootResultVar <- boot(sample1, statistic = varFunc, R = 1000)
+
+# Calcular el intervalo de confianza del 95% usando el método BCA
+bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "bca")
+
+# Mostrar el límite superior del intervalo de confianza del 95% para la varianza utilizando 'bca'
+bootCIVar$bca[5]
+
+
 #PREGUNTA 46
 #PREGUNTA 47
 #PREGUNTA 48
