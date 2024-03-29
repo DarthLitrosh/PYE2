@@ -433,6 +433,31 @@ bootCIVar$bca[5]
 
 
 #PREGUNTA 46
+# Número de réplicas Bootstrap
+bootR <- 1000
+
+# Establece una semilla para reproducibilidad
+set.seed(2023)
+
+# Inicializa un vector para almacenar las varianzas de las muestras bootstrap
+bootstrap_variances <- numeric(bootR)
+
+# Bucle para generar muestras bootstrap y calcular su varianza
+for (i in 1:bootR) {
+  # Muestra con reemplazo
+  sample_boot <- sample(Sample1, size = length(Sample1), replace = TRUE)
+  
+  # Calcula la varianza de la muestra bootstrap y la almacena
+  bootstrap_variances[i] <- var(sample_boot)
+}
+
+# Calcula la varianza estimada de las varianzas bootstrap
+estimated_variance <- mean(bootstrap_variances)
+
+# Imprime la varianza estimada
+print(estimated_variance)
+
+
 #PREGUNTA 47
 # Configurar el seed para reproducibilidad
 set.seed(2023)
