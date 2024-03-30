@@ -11,6 +11,7 @@ library(boot)
 library(survival)
 library(TeachingDemos)
 library(boot)
+library(stats4)
 
 # Definir la muestra de datos
 Sample1 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
@@ -153,14 +154,18 @@ municipal_mean <- mean(municipal_data$Sample1)
 print(municipal_mean)
 
 # PREGUNTA 23
-# Filtrar Sample1 para incluir solo los valores correspondientes a Utility.Type == Municipal
-Sample1_municipal <- Sample1[Sample2 == "Municipal"]
+# Definimos la log-verosimilitud negativa para una distribución normal
+neg_log_likelihood <- function(sd, x) {
+  n <- length(x)
+  mu <- mean(x)
+  -(-n/2*log(2*pi) - n*log(sd) - 1/(2*sd^2) * sum((x - mu)^2))
+}
 
-# Calcular la desviación típica de Sample1 condicionado a Utility.Type == Municipal
-sd_mle_municipal <- sd(Sample1_municipal)
+# Aplicar optimización para encontrar la estimación de MLE de la sd
+mle_sd <- optim(par = 1, fn = neg_log_likelihood, x = municipal_data, method = "BFGS")$par
 
 # Mostrar el resultado
-print(sd_mle_municipal)
+print(mle_sd)
 
 #PREGUNTA 24
 # Filtrar Sample1 para incluir solo los valores correspondientes a Utility.Type != Municipal
