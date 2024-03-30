@@ -178,14 +178,23 @@ mean_mle_no_municipal <- mean(Sample1_no_municipal)
 print(mean_mle_no_municipal)
 
 #PREGUNTA 25
-# Filtrar Sample1 para incluir solo los valores correspondientes a Utility.Type != Municipal
-Sample1_no_municipal <- Sample1[Sample2 != "Municipal"]
+data <- data.frame(Sample1, Utility.Type = Sample2)
 
-# Calcular la desviación típica de Sample1 condicionado a Utility.Type != Municipal
-sd_mle_no_municipal <- sd(Sample1_no_municipal)
+# Filtrar los datos para no "Municipal"
+non_municipal_data <- data$Sample1[data$Utility.Type != "Municipal"]
 
-# Mostrar el resultado
-print(sd_mle_no_municipal)
+# Definir la función de log-verosimilitud negativa
+neg_log_likelihood <- function(log_sd) {
+  sd <- exp(log_sd)  # Usamos log_sd para asegurar que sd sea siempre positiva
+  -sum(dnorm(non_municipal_data, mean = mean(non_municipal_data), sd = sd, log = TRUE))
+}
+
+# Usar mle para encontrar la estimación que minimiza la log-verosimilitud negativa
+result <- mle(neg_log_likelihood, start = list(log_sd = 0), method = "L-BFGS-B")
+
+# Mostrar la estimación de la desviación estándar
+estimated_sd <- exp(coef(result)['log_sd'])
+print(estimated_sd)
 
 #PREGUNTA 26
 # Definir la desviación estándar conocida
