@@ -140,14 +140,17 @@ sample_sd <- sd(Sample1)
 print(sample_sd)
 
 #PREGUNTA 22
-# Filtrar Sample1 para incluir solo los valores correspondientes a Utility.Type == Municipal
-Sample1_municipal <- Sample1[Utility.Type == "Municipal"]
+# Crear un data.frame para facilitar el análisis
+data <- data.frame(Sample1, Utility.Type = Sample2)
 
-# Calcular la media de Sample1 condicionado a Utility.Type == Municipal
-mle_mean_municipal <- mean(Sample1_municipal)
+# Filtrar los datos para incluir solo aquellos donde Utility.Type == "Municipal"
+municipal_data <- data[data$Utility.Type == "Municipal", ]
 
-# Mostrar el resultado
-print(mle_mean_municipal)
+# Calcular la media de Sample1 para los datos filtrados
+municipal_mean <- mean(municipal_data$Sample1)
+
+# Imprimir la media calculada
+print(municipal_mean)
 
 # PREGUNTA 23
 # Filtrar Sample1 para incluir solo los valores correspondientes a Utility.Type == Municipal
