@@ -638,3 +638,29 @@ boot_ci <- boot.ci(bootstrap_results, conf = 0.95, type = "basic")
 
 # Mostrar el límite inferior del intervalo de confianza del 95%
 cat("Límite inferior del IC del 95% para la diferencia de medias:", boot_ci$basic[4], "\n")
+
+#PREGUNTA 55
+# Convertir Sample2 a un factor con dos niveles: "Municipal" y "No Municipal"
+Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
+
+# Crear un dataframe para el análisis
+data <- data.frame(Sample1, Sample2 = as.factor(Sample2))
+
+# Definir la función de estadística para bootstrapping
+# Calcula la diferencia de medias entre dos grupos
+diff_means <- function(data, indices) {
+  sample_data <- data[indices, ]  # Permite el re-muestreo con reemplazo
+  municipal_mean <- mean(sample_data$Sample1[sample_data$Sample2 == "Municipal"])
+  no_municipal_mean <- mean(sample_data$Sample1[sample_data$Sample2 != "Municipal"])
+  return(municipal_mean - no_municipal_mean)
+}
+
+# Establecer la semilla para reproducibilidad
+set.seed(2023)
+
+# Aplicar bootstrapping
+bootstrap_results <- boot(data = data, statistic = diff_means, R = 1000)
+
+boot_ci_perc <- boot.ci(bootstrap_results, conf = 0.95, type = "perc")
+
+cat("Límite superior del IC del 95% para la diferencia de medias con 'perc':", boot_ci_perc$perc[5], "\n")
