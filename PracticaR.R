@@ -724,3 +724,17 @@ f_test_result <- var.test(municipal_values, no_municipal_values)
 
 # Mostrar el valor superior del intervalo de confianza del 95% para el ratio de varianzas
 cat("Valor superior del IC.95 para el ratio de varianzas (Municipal / No Municipal):", f_test_result$conf.int[2], "\n")
+
+#PREGUNTA 60
+# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
+
+# Separar Sample1 en dos grupos según Sample2
+municipal_values <- Sample1[Sample2 == "Municipal"]
+no_municipal_values <- Sample1[Sample2 != "Municipal"]
+
+# Realizar la prueba F para comparar las varianzas
+f_test_result <- var.test(municipal_values, no_municipal_values)
+
+# Mostrar el p-valor de la prueba F
+cat("P-valor de la prueba F (Municipal vs No Municipal):", f_test_result$p.value, "\n")
