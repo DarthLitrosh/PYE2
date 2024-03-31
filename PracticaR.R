@@ -682,4 +682,15 @@ cat("P-valor del test t para la diferencia de medias:", t_test_result$p.value, "
 
 
 #PREGUNTA 57
+# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
+# Separar Sample1 en dos grupos según Sample2
+municipal_values <- Sample1[Sample2 == "Municipal"]
+no_municipal_values <- Sample1[Sample2 != "Municipal"]
+
+# Realizar el test t para dos muestras independientes
+t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
+
+# Mostrar la diferencia de medias estimada
+cat("Diferencia de medias estimada (Municipal - No Municipal):", t_test_result$estimate[1] - t_test_result$estimate[2], "\n")
