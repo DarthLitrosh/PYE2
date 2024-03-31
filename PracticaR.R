@@ -664,3 +664,22 @@ bootstrap_results <- boot(data = data, statistic = diff_means, R = 1000)
 boot_ci_perc <- boot.ci(bootstrap_results, conf = 0.95, type = "perc")
 
 cat("Límite superior del IC del 95% para la diferencia de medias con 'perc':", boot_ci_perc$perc[5], "\n")
+
+
+#PREGUNTA 56
+# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
+
+# Separar Sample1 en dos grupos según Sample2
+municipal_values <- Sample1[Sample2 == "Municipal"]
+no_municipal_values <- Sample1[Sample2 != "Municipal"]
+
+# Realizar el test t para dos muestras independientes
+t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
+
+# Mostrar el p-valor
+cat("P-valor del test t para la diferencia de medias:", t_test_result$p.value, "\n")
+
+
+#PREGUNTA 57
+
