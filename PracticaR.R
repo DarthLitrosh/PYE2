@@ -753,3 +753,26 @@ f_test_result <- var.test(municipal_values, no_municipal_values)
 
 # Mostrar el ratio estimado de varianzas
 cat("Ratio estimado de varianzas (Municipal / No Municipal):", f_test_result$estimate, "\n")
+
+#PREGUNTA 62
+
+#PREGUNTA 63
+# Calcular el número de Utilities que NO son Municipales
+nUT.NM <- sum(Sample2 != "Municipal")
+
+alfa_prior <- 5
+
+# Actualizar la previa con los datos observados para obtener los parámetros a posteriori
+alfa_posterior <- alfa_prior + nUT.NM
+
+alfa_posterior
+
+#pregunta 64
+# Calcular el número de Utilities que NO son Municipales
+nUT.NM <- sum(Sample2 != "Municipal")
+
+beta_prior <- 10
+
+beta_posterior <- beta_prior + length(Sample2) - nUT.NM
+
+beta_posterior
