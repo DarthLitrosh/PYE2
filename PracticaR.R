@@ -90,7 +90,7 @@ estimador_media <- mean(Medias_Muestrales_30)
 print(estimador_media)
 # PREGUNTA 15
 # Calcular la desviación estándar de las medias muestrales
-estimador_desviacion <- sd(Medias_Muestrales_30)
+fitdist(Medias_Muestrales_30, distr = "norm")
 
 # Mostrar el resultado
 print(estimador_desviacion)
@@ -134,7 +134,11 @@ print(mle_mean)
 #PREGUNTA 21
 # Calcular la desviación estándar de Sample1 por MLE suponiendo una distribución normal
 # Calcular la desviación estándar de Sample1
-sample_sd <- sd(Sample1)
+# Ajustando una distribución normal a Sample1
+fit_sample1 <- fitdist(Sample1, distr = "norm")
+
+# Mostrar el resultado
+summary(fit_sample1)
 
 # Mostrar el resultado
 
