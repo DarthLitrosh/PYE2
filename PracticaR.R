@@ -483,7 +483,7 @@ print(estimated_variance)
 # Configurar el seed para reproducibilidad
 set.seed(2023)
 
-function(data, indices) {
+propMunicipalFunc <- function(data, indices) {
     # Asumiendo que 'data' es un vector de categorías y "Municipal" es una de estas categorías
     prop <- sum(data[indices] == "Municipal") / length(indices)
     return(prop)
