@@ -483,6 +483,12 @@ print(estimated_variance)
 # Configurar el seed para reproducibilidad
 set.seed(2023)
 
+function(data, indices) {
+    # Asumiendo que 'data' es un vector de categorías y "Municipal" es una de estas categorías
+    prop <- sum(data[indices] == "Municipal") / length(indices)
+    return(prop)
+}
+
 # Asegúrate de que 'Sample2' está definido y es apropiado para tu análisis
 
 # Aplicar el método Bootstrap para estimar la proporción de "Municipal"
