@@ -230,6 +230,8 @@ mle_mean <- mean(Sample1)
 print(mle_mean)
 ```
 5.101524
+
+
 ```{r}  
 #PREGUNTA 21
 # desviación estándar de Sample1 por MLE con distribución normal
@@ -244,6 +246,8 @@ summary(fit_sample1)
 print(sample_sd)
 ```
 5.101524
+
+
 ```{r}  
 #PREGUNTA 22
 # data.frame para facilitar el análisis
@@ -259,6 +263,8 @@ municipal_mean <- mean(municipal_data$Sample1)
 print(municipal_mean)
 ```
 4.723715
+
+
 ```{r}
 # PREGUNTA 23
 # log-verosimilitud negativa para distribución normal
@@ -275,6 +281,8 @@ mle_sd <- optim(par = 1, fn = neg_log_likelihood, x = municipal_data, method = "
 print(mle_sd)
 ```
 1
+
+
 ```{r} 
  #PREGUNTA 24
 # Filtrar Sample1
@@ -287,6 +295,8 @@ mean_mle_no_municipal <- mean(Sample1_no_municipal)
 print(mean_mle_no_municipal)
 ```
 5.983079
+
+
 ```{r}  
 #PREGUNTA 25
 data <- data.frame(Sample1, Utility.Type = Sample2)
@@ -308,6 +318,8 @@ estimated_sd <- exp(coef(result)['log_sd'])
 print(estimated_sd)
 ```
 0.9947235
+
+
 ```{r}  
 #PREGUNTA 26
 # Definir desviación estándar conocida
@@ -326,6 +338,8 @@ limite_inferior_IC95 <- mean(Sample1) - z * (desviacion_conocida / sqrt(n))
 print(limite_inferior_IC95)
 ```
 4.59781
+
+
 ```{r} 
  #PREGUNTA 27
 
@@ -345,11 +359,13 @@ limite_superior_IC95 <- mean(Sample1) + z * (desviacion_conocida / sqrt(n))
 print(limite_superior_IC95)
 ```
 5.605238
+
+
 ```{r} 
  #PREGUNTA 28
 # media y la desviación estándar conocida
 media <- mean(Sample1)
-desviacion_estandar_conocida <- 1.149346  # Aquí ingresa el valor de la desviación estándar conocida
+desviacion_estandar_conocida <- 1.149346
 
 # tamaño de la muestra
 n <- length(Sample1)
@@ -363,6 +379,8 @@ valor_p <- 2 * (1 - pnorm(abs(valor_z)))
 # resultado
 print(valor_p)
 ```
+
+
 ```{r} 
  #PREGUNTA 29
 # Definir la media estimada
@@ -373,6 +391,7 @@ print(media_estimada)
 
 ```
 5.101524
+
 
 ```{r} 
  #PREGUNTA 30
@@ -387,6 +406,8 @@ print(limite_inferior_ic)
 
 ```
 4.563614
+
+
 ```{r} 
  #PREGUNTA 31
 # t-test para obtener el intervalo de confianza de la media
