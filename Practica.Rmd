@@ -56,7 +56,7 @@ RESULTADO: 4.302034
 # Calcular la mediana (Q2)
 median(Sample1)
 ```
-4.952332
+RESULTADO: 4.952332
 
 
 
@@ -66,7 +66,7 @@ median(Sample1)
 # Calcular la media 
 mean(Sample1)
 ```
-5.101524
+RESULTADO: 5.101524
 
 
 
@@ -75,7 +75,7 @@ mean(Sample1)
 # Calcular el tercer cuartil (Q3)
 quantile(Sample1, 0.75)
 ```
-5.97742 
+RESULTADO: 5.97742 
 
 
 
@@ -84,7 +84,7 @@ quantile(Sample1, 0.75)
 # Calcular el valor máximo
 max(Sample1)
 ```
-7.125954
+RESULTADO: 7.125954
 
 
 ```{r} 
@@ -92,14 +92,14 @@ max(Sample1)
 # Calcular el coeficiente de asimetría
 skewness(Sample1)
 ```
-0.3114064
+RESULTADO: 0.3114064
 
 ```{r}  
 #PREGUNTA 8
 # Calcular el coeficiente de apuntamiento 
 kurtosis(Sample1)
 ```
--1.136388
+RESULTADO: -1.136388
 
 
 ```{r}  
@@ -110,7 +110,7 @@ fit <- fitdistr(Sample1, "normal")
 # estimador de la media
 fit$estimate["mean"]
 ```
-5.101524
+RESULTADO: 5.101524
 
 
 ```{r} 
@@ -118,7 +118,7 @@ fit$estimate["mean"]
 # Obtener el estimador de la desviación típica
 fit$estimate["sd"]
 ```
-1.120244
+RESULTADO: 1.120244
 
 ```{r} 
  #PREGUNTA 11
@@ -130,7 +130,7 @@ ks_result <- ks.test(Sample1, "pnorm", mean = mu, sd = sigma)
 # Obtener p-valor
 ks_result$p.value
 ```
-0.8839968
+RESULTADO: 0.8839968
 
 ```{r} 
  #PREGUNTA 12
@@ -140,7 +140,7 @@ fit <- fitdistr(Sample1, "exponential")
 # estimador de la tasa lambda
 fit$estimate["rate"]
 ```
-0.1960199 
+RESULTADO: 0.1960199 
 
 ```{r}
 # PREGUNTA 13
@@ -151,7 +151,7 @@ ks_resultado <- ks.test(Sample1, "pexp", lambda_estimado)
 # Mostrar valor 
 ks_resultado$p.value
 ```
-0.0001543603
+RESULTADO: 0.0001543603
 
 ```{r}
 # PREGUNTA 14
@@ -164,7 +164,7 @@ estimador_media <- mean(Medias_Muestrales_30)
 # resultado
 print(estimador_media)
 ```
-63474.18
+RESULTADO: 63474.18
 
 
 
@@ -177,7 +177,7 @@ estimador_desviacion <- fitdist(Medias_Muestrales_30, distr = "norm")
 print(estimador_desviacion)
 
 ```
-58926.13
+RESULTADO: 58926.13
 
 ```{r} 
 
@@ -191,7 +191,7 @@ p_valor <- ks_result$p.value
 # resultado
 print(p_valor)
 ```
-0.05036418
+RESULTADO: 0.05036418
 
 
 ```{r} 
@@ -204,12 +204,12 @@ Proporciones_Muestrales_30 <- c(0.05, 0, 0.25, 0.05, 0, 0.1, 0, 0.1, 0.2, 0.1,
 # media de las proporciones muestrales
 mean(Proporciones_Muestrales_30)
 ```
-0.07666667
+RESULTADO: 0.07666667
 ```{r}  
 #PREGUNTA 18
 sd(Proporciones_Muestrales_30)
 ```
-0.06789106
+RESULTADO: 0.06789106
 ```{r}  
 #Pregunta 19
 ks_result <- ks.test(Proporciones_Muestrales_30, "pnorm", mean = mean(Proporciones_Muestrales_30), sd = sd(Proporciones_Muestrales_30))
@@ -220,7 +220,7 @@ p2_valor <- ks_result$p.value
 # resultado
 print(p2_valor)
 ```
-0.1112536
+RESULTADO: 0.1112536
 ```{r}  
 #PREGUNTA 20
 # media de Sample1 por MLE
@@ -229,7 +229,7 @@ mle_mean <- mean(Sample1)
 # resultado
 print(mle_mean)
 ```
-5.101524
+RESULTADO: 5.101524
 
 
 ```{r}  
@@ -245,7 +245,7 @@ summary(fit_sample1)
 
 print(sample_sd)
 ```
-5.101524
+RESULTADO: 5.101524
 
 
 ```{r}  
@@ -262,7 +262,7 @@ municipal_mean <- mean(municipal_data$Sample1)
 # media calculada
 print(municipal_mean)
 ```
-4.723715
+RESULTADO: 4.723715
 
 
 ```{r}
@@ -280,7 +280,7 @@ mle_sd <- optim(par = 1, fn = neg_log_likelihood, x = municipal_data, method = "
 # resultado
 print(mle_sd)
 ```
-1
+RESULTADO: 1
 
 
 ```{r} 
@@ -294,7 +294,7 @@ mean_mle_no_municipal <- mean(Sample1_no_municipal)
 # resultado
 print(mean_mle_no_municipal)
 ```
-5.983079
+RESULTADO: 5.983079
 
 
 ```{r}  
@@ -317,7 +317,7 @@ result <- mle(neg_log_likelihood, start = list(log_sd = 0), method = "L-BFGS-B")
 estimated_sd <- exp(coef(result)['log_sd'])
 print(estimated_sd)
 ```
-0.9947235
+RESULTADO: 0.9947235
 
 
 ```{r}  
@@ -337,7 +337,7 @@ limite_inferior_IC95 <- mean(Sample1) - z * (desviacion_conocida / sqrt(n))
 # resultado
 print(limite_inferior_IC95)
 ```
-4.59781
+RESULTADO: 4.59781
 
 
 ```{r} 
@@ -358,7 +358,7 @@ limite_superior_IC95 <- mean(Sample1) + z * (desviacion_conocida / sqrt(n))
 # resultado
 print(limite_superior_IC95)
 ```
-5.605238
+RESULTADO: 5.605238
 
 
 ```{r} 
@@ -379,7 +379,7 @@ valor_p <- 2 * (1 - pnorm(abs(valor_z)))
 # resultado
 print(valor_p)
 ```
-
+RESULTADO: 
 
 ```{r} 
  #PREGUNTA 29
@@ -390,7 +390,7 @@ media_estimada <- mean(Sample1)
 print(media_estimada)
 
 ```
-5.101524
+RESULTADO: 5.101524
 
 
 ```{r} 
@@ -405,7 +405,7 @@ limite_inferior_ic <- resultado_t_test$conf.int[1]
 print(limite_inferior_ic)
 
 ```
-4.563614
+RESULTADO: 4.563614
 
 
 ```{r} 
@@ -420,7 +420,7 @@ limite_superior_ic <- resultado_t_test$conf.int[2]
 print(limite_superior_ic)
 
 ```
-5.639435
+RESULTADO: 5.639435
 
 ```{r} 
  #PREGUNTA 32
@@ -433,7 +433,7 @@ p_valor <- z_test_result$p.value
 # p-valor
 print(p_valor)
 ```
-1.098314e-87
+RESULTADO: 1.098314e-87
 ```{r}  
 #PREGUNTA 33
 # Calcular la media muestral
@@ -443,7 +443,7 @@ media_estimada <- mean(Sample1)
 print(media_estimada)
 
 ```
-5.101524
+RESULTADO: 5.101524
 ```{r} 
  #PREGUNTA 34
 # Tamaño de la muestra
@@ -466,7 +466,7 @@ variance_lower_bound <- ((n - 1) * s2) / chi2_upper
 print(variance_lower_bound)
 
 ```
-0.7639922
+RESULTADO: 0.7639922
 
 ```{r}  
 #PREGUNTA 35
@@ -490,7 +490,7 @@ variance_upper_bound <- ((n - 1) * s2) / chi2_lower
 print(variance_upper_bound)
 
 ```
-2.81804
+RESULTADO: 2.81804
 ```{r}  
 #PREGUNTA 36
 # varianza muestral
@@ -499,7 +499,7 @@ varianza_estimada <- var(Sample1)
 # Imprimir la varianza estimada
 print(varianza_estimada)
 ```
-1.320996
+RESULTADO: 1.320996
 
 ```{r}
 #PREGUNTA 41
@@ -520,7 +520,7 @@ bootCI <- boot.ci(bootResult, conf = 0.95, type = "norm")
 # límite inferior del IC
 bootCI$normal[2]
 ```
-4.603468
+RESULTADO: 4.603468
 ```{r} 
 
 #PREGUNTA 42
@@ -542,8 +542,9 @@ boot.results <- boot(data=Sample1, statistic=boot.mean, R=bootR)
 # intervalo de confianza del 95% para la media con el método percentil
 boot.ci(boot.results, conf=0.95, type="perc")
 ```
-Level     Percentile     
-95%   ( 4.630,  5.623 ) 
+RESULTADO: 
+   Level     Percentile     
+   95%   ( 4.630,  5.623 ) 
 
 ```{r} 
 #PREGUNTA 43
@@ -563,7 +564,7 @@ meanEstimate <- bootResult$t0
 meanEstimate
 
 ```
-5.101524
+RESULTADO: 5.101524
 ```{r} 
  #PREGUNTA 44
 #función para calcular la varianza
@@ -584,7 +585,7 @@ bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "norm")
 bootCIVar$normal[2]
 
 ```
-0.8130413
+RESULTADO: 0.8130413
 ```{r} 
  #PREGUNTA 45
 
@@ -605,7 +606,7 @@ bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "bca")
 # límite superior del intervalo de confianza del 95% para la varianza utilizando 'bca'
 bootCIVar$bca[5]
 ```
-1.993809
+RESULTADO: 1.993809
 ```{r} 
  #PREGUNTA 46
 
@@ -634,7 +635,7 @@ estimated_variance <- mean(bootstrap_variances)
 print(estimated_variance)
 
 ```
-1.250584
+RESULTADO: 1.250584
 ```{r} 
  #PREGUNTA 47
 # seed para reproducibilidad
@@ -652,7 +653,7 @@ limite_inferior_norm <- bootCIPropNorm$normal[2]
 limite_inferior_norm
 
 ```
-0.4956045
+RESULTADO: 0.4956045
 ```{r} 
  #PREGUNTA 48
 # seed para reproducibilidad
@@ -669,7 +670,7 @@ valor_superior_perc <- bootCIPropPerc$percent[5]
 
 valor_superior_perc
 ```
-0.9
+RESULTADO: 0.9
 ```{r} 
  #PREGUNTA 49
 # Convertir a un vector binario
@@ -695,7 +696,7 @@ proporcion_estimada <- mean(boot.results$t)
 # resultado
 proporcion_estimada
 ```
-0.6982
+RESULTADO: 0.6982
 ```{r} 
  #PREGUNTA 50
 # Convertimos Sample2 en un vector lógico
@@ -714,7 +715,7 @@ lower_bound <- t_test_result$conf.int[1]
 # resultado
 print(lower_bound)
 ```
--2.434132
+RESULTADO: -2.434132
 ```{r}
   #PREGUNTA 51
 # Convertir Sample2 en un factor
@@ -736,7 +737,7 @@ upper_ci_value <- t_test_result$conf.int[2]
 # resultado
 print(upper_ci_value)
 ```
--0.08459783
+RESULTADO: -0.08459783
 ```{r} 
  #PREGUNTA 52
 # Convertimos Sample2 en un vector lógico indicando si cada elemento es Municipal
@@ -755,7 +756,7 @@ p_value <- t_test_result$p.value
 # Imprimimos
 print(p_value)
 ```
-0.03838166
+RESULTADO: 0.03838166
 ```{r}  
 #PREGUNTA 53
 # Convertir Sample2 en un factor
@@ -777,7 +778,7 @@ mean_difference <- t_test_result$estimate[1] - t_test_result$estimate[2]
 # Imprimir la diferencia de medias estimada
 print(mean_difference)
 ````
--1.259365
+RESULTADO: -1.259365
 ```{r}  
 #PREGUNTA 54
 # Convertir Sample2 a un factor con dos niveles
@@ -806,7 +807,7 @@ boot_ci <- boot.ci(bootstrap_results, conf = 0.95, type = "basic")
 # límite inferior del intervalo de confianza del 95%
 cat("L.I.:", boot_ci$basic[4], "\n")
 ```
--2.266906
+RESULTADO: -2.266906
 ```{r} 
  #PREGUNTA 55
 # Convertir Sample2 a un factor con dos niveles
@@ -835,7 +836,7 @@ boot_ci_perc <- boot.ci(bootstrap_results, conf = 0.95, type = "perc")
 cat("L.S.:", boot_ci_perc$perc[5], "\n")
 
 ```
--0.2518238
+RESULTADO: -0.2518238
 ```{r} 
  #PREGUNTA 56
 # Convertir Sample2 en factor con niveles Municipal y No Municipal
@@ -852,7 +853,7 @@ t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
 cat("P-valor:", t_test_result$p.value, "\n")
 
 ```
-0.02009517
+RESULTADO: 0.02009517
 ```{r}  
 #PREGUNTA 57
 # Convertir Sample2 en factor con niveles Municipal y No Municipal
@@ -869,7 +870,7 @@ t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
 cat("Diferencia de medias estimada:", t_test_result$estimate[1] - t_test_result$estimate[2], "\n")
 
 ```
--1.259365
+RESULTADO: -1.259365
 ```{r}
   #PREGUNTA 58
 # Convertir Sample2 en factor con niveles Municipal y No Municipal
@@ -886,7 +887,7 @@ f_test_result <- var.test(municipal_values, no_municipal_values)
 cat("V.I.:", f_test_result$conf.int[1], "\n")
 
 ```
-0.1248328 
+RESULTADO: 0.1248328 
 ```{r} 
  #PREGUNTA 59
 # Convertir Sample2 en factor con niveles Municipal y No Municipal
@@ -902,7 +903,7 @@ f_test_result <- var.test(municipal_values, no_municipal_values)
 # valor superior del IC del 95% para el ratio de varianzas
 cat("V.S.:", f_test_result$conf.int[2], "\n")
 ```
-3.050489 
+RESULTADO: 3.050489 
 ```{r} 
  #PREGUNTA 60
 # Convertir Sample2 en factor con niveles Municipal y No Municipal
@@ -918,7 +919,7 @@ f_test_result <- var.test(municipal_values, no_municipal_values)
 # p-valor
 cat("P-valor:", f_test_result$p.value, "\n")
 ```
-0.6958466
+RESULTADO: 0.6958466
 ```{r} 
  #PREGUNTA 61
 # Convertir Sample2 en factor con niveles Municipal y No Municipal
@@ -934,7 +935,7 @@ f_test_result <- var.test(municipal_values, no_municipal_values)
 # ratio estimado de varianzas
 cat("Ratio estimado:", f_test_result$estimate, "\n")
 ```
-0.8098628
+RESULTADO: 0.8098628
 
 ```{r} 
  #PREGUNTA 63
@@ -948,7 +949,7 @@ alfa_posterior <- alfa_prior + nUT.NM
 
 alfa_posterior
 ```
-11
+RESULTADO: 11
 ```{r}
 #pregunta 64
 # número de Utilities que no son Municipales
@@ -960,7 +961,7 @@ beta_posterior <- beta_prior + length(Sample2) - nUT.NM
 
 beta_posterior
 ```
-24
+RESULTADO: 24
 
 
 
