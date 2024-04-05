@@ -30,7 +30,7 @@ library(survival)
 library(TeachingDemos)
 library(stats4)
 
-# Definir la muestra de datos
+# Definir las muestras de datos
 Sample1 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
 Sample2 <- c("Municipal", "Municipal", "Municipal", "Political Subdivision", "Municipal", "Municipal", "Municipal", "Municipal", "Behind the Meter", "Municipal", "Municipal", "Municipal", "Retail Power Marketer", "Municipal", "Investor Owned", "Cooperative", "Cooperative", "Municipal", "Municipal", "Municipal")
 
@@ -89,14 +89,14 @@ max(Sample1)
 
 ```{r} 
  #PREGUNTA 7
-# Calcular el coeficiente de asimetría (skewness)
+# Calcular el coeficiente de asimetría
 skewness(Sample1)
 ```
 0.3114064
 
 ```{r}  
 #PREGUNTA 8
-# Calcular el coeficiente de apuntamiento (curtosis)
+# Calcular el coeficiente de apuntamiento 
 kurtosis(Sample1)
 ```
 -1.136388
@@ -107,7 +107,7 @@ kurtosis(Sample1)
 # Ajustar los datos a una distribución normal
 fit <- fitdistr(Sample1, "normal")
 
-# Obtener el estimador de la media
+# estimador de la media
 fit$estimate["mean"]
 ```
 5.101524
@@ -125,19 +125,19 @@ fit$estimate["sd"]
 # Obtener los parámetros estimados de la distribución normal
 mu <- fit$estimate["mean"]
 sigma <- fit$estimate["sd"]
-# Realizar el test de Kolmogorov-Smirnov
+# test de Kolmogorov-Smirnov
 ks_result <- ks.test(Sample1, "pnorm", mean = mu, sd = sigma)
-# Obtener el p-valor
+# Obtener p-valor
 ks_result$p.value
 ```
 0.8839968
 
 ```{r} 
  #PREGUNTA 12
-# Ajustar los datos a una distribución exponencial
+# Ajustar los datos a distribución exponencial
 fit <- fitdistr(Sample1, "exponential")
 
-# Obtener el estimador de la tasa lambda
+# estimador de la tasa lambda
 fit$estimate["rate"]
 ```
 0.1960199 
@@ -146,9 +146,9 @@ fit$estimate["rate"]
 # PREGUNTA 13
 # Estimar el parámetro lambda
 lambda_estimado <- 1/mean(Sample1)
-# Realizar la prueba KS para una distribución exponencial
+# Realizar la prueba KS con distribución exponencial
 ks_resultado <- ks.test(Sample1, "pexp", lambda_estimado)
-# Mostrar el valor 
+# Mostrar valor 
 ks_resultado$p.value
 ```
 0.0001543603
@@ -156,13 +156,13 @@ ks_resultado$p.value
 ```{r}
 #otra parte
 # PREGUNTA 14
-# Definir el vector de medias muestrales
+# vector de medias muestrales
 Medias_Muestrales_30 <- c(186508, 17069.65, 36312.45, 25875.35, 163188.8, 115084.2, 146225.1, 12687.45, 62314.05, 90988, 14934.75, 17007.7, 97357.1, 33063, 18807.4, 12269.6, 22688.15, 16010.55, 74900.3, 20907.25, 22294.65, 221893.1, 90823.1, 21103.7, 153812.6, 101743.1, 11259.85, 43944.05, 32856.15, 20296.3)
 
-# Calcular la media de las medias muestrales
+# media de las medias muestrales
 estimador_media <- mean(Medias_Muestrales_30)
 
-# Mostrar el resultado
+# resultado
 print(estimador_media)
 ```
 63474.18
@@ -171,10 +171,10 @@ print(estimador_media)
 
 ```{r}
 # PREGUNTA 15
-# Calcular la desviación estándar de las medias muestrales
+# desviación estándar de las medias muestrales
 estimador_desviacion <- fitdist(Medias_Muestrales_30, distr = "norm")
 
-# Mostrar el resultado
+# resultado
 print(estimador_desviacion)
 
 ```
@@ -183,13 +183,13 @@ print(estimador_desviacion)
 ```{r} 
 
 # PREGUNTA 16
-# Realizar el test de Kolmogorov-Smirnov para evaluar el ajuste a una distribución normal
+# test de Kolmogorov-Smirnov para evaluar el ajuste a una distribución normal
 ks_result <- ks.test(Medias_Muestrales_30, "pnorm", mean = mean(Medias_Muestrales_30), sd = sd(Medias_Muestrales_30))
 
-# Obtener el p-valor
+# p-valor
 p_valor <- ks_result$p.value
 
-# Mostrar el resultado
+# resultado
 print(p_valor)
 ```
 0.05036418
@@ -197,12 +197,12 @@ print(p_valor)
 
 ```{r} 
  #PREGUNTA 17
-# Definir el vector de proporciones muestrales
+# vector de proporciones muestrales
 Proporciones_Muestrales_30 <- c(0.05, 0, 0.25, 0.05, 0, 0.1, 0, 0.1, 0.2, 0.1,
                                 0.15, 0.05, 0.05, 0.1, 0.05, 0.1, 0, 0.05, 0.2, 0,
                                 0.05, 0.05, 0.05, 0.1, 0.1, 0.2, 0.1, 0, 0.05, 0)
 
-# Calcular la media de las proporciones muestrales
+# media de las proporciones muestrales
 mean(Proporciones_Muestrales_30)
 ```
 0.07666667
@@ -215,77 +215,76 @@ sd(Proporciones_Muestrales_30)
 #Pregunta 19
 ks_result <- ks.test(Proporciones_Muestrales_30, "pnorm", mean = mean(Proporciones_Muestrales_30), sd = sd(Proporciones_Muestrales_30))
 
-# Obtener el p-valor
+# p-valor
 p2_valor <- ks_result$p.value
 
-# Mostrar el resultado
+# resultado
 print(p2_valor)
 ```
 0.1112536
 ```{r}  
 #PREGUNTA 20
-# Calcular la media de Sample1 por MLE suponiendo una distribución normal
+# media de Sample1 por MLE
 mle_mean <- mean(Sample1)
 
-# Mostrar el resultado
+# resultado
 print(mle_mean)
 ```
 5.101524
 ```{r}  
 #PREGUNTA 21
-# Calcular la desviación estándar de Sample1 por MLE suponiendo una distribución normal
+# desviación estándar de Sample1 por MLE con distribución normal
 # Calcular la desviación estándar de Sample1
 # Ajustando una distribución normal a Sample1
 fit_sample1 <- fitdist(Sample1, distr = "norm")
 
-# Mostrar el resultado
 summary(fit_sample1)
 
-# Mostrar el resultado
+# resultado
 
 print(sample_sd)
 ```
 5.101524
 ```{r}  
 #PREGUNTA 22
-# Crear un data.frame para facilitar el análisis
+# data.frame para facilitar el análisis
 data <- data.frame(Sample1, Utility.Type = Sample2)
 
-# Filtrar los datos para incluir solo aquellos donde Utility.Type == "Municipal"
+# Filtrar los datos
 municipal_data <- data[data$Utility.Type == "Municipal", ]
 
-# Calcular la media de Sample1 para los datos filtrados
+# media de Sample1
 municipal_mean <- mean(municipal_data$Sample1)
 
-# Imprimir la media calculada
+# media calculada
 print(municipal_mean)
 ```
 4.723715
 ```{r}
 # PREGUNTA 23
-# Definimos la log-verosimilitud negativa para una distribución normal
+# log-verosimilitud negativa para distribución normal
 neg_log_likelihood <- function(sd, x) {
   n <- length(x)
   mu <- mean(x)
   -(-n/2*log(2*pi) - n*log(sd) - 1/(2*sd^2) * sum((x - mu)^2))
 }
 
-# Aplicar optimización para encontrar la estimación de MLE de la sd
+# optimización para encontrar la estimación de MLE de la sd
 mle_sd <- optim(par = 1, fn = neg_log_likelihood, x = municipal_data, method = "BFGS")$par
 
-# Mostrar el resultado
+# resultado
 print(mle_sd)
 ```
 1
 ```{r} 
  #PREGUNTA 24
-# Filtrar Sample1 para incluir solo los valores correspondientes a Utility.Type != Municipal
+# Filtrar Sample1
 Sample1_no_municipal <- Sample1[Sample2 != "Municipal"]
 
-# Calcular la media de Sample1 condicionado a Utility.Type != Municipal
+# Calcular la media
 mean_mle_no_municipal <- mean(Sample1_no_municipal)
 
-# Mostrar el resultado
+# resultado
 print(mean_mle_no_municipal)
 ```
 5.983079
@@ -293,76 +292,76 @@ print(mean_mle_no_municipal)
 #PREGUNTA 25
 data <- data.frame(Sample1, Utility.Type = Sample2)
 
-# Filtrar los datos para no "Municipal"
+# Filtrar datos para no "Municipal"
 non_municipal_data <- data$Sample1[data$Utility.Type != "Municipal"]
 
-# Definir la función de log-verosimilitud negativa
+# función de log-verosimilitud negativa
 neg_log_likelihood <- function(log_sd) {
   sd <- exp(log_sd)  # Usamos log_sd para asegurar que sd sea siempre positiva
   -sum(dnorm(non_municipal_data, mean = mean(non_municipal_data), sd = sd, log = TRUE))
 }
 
-# Usar mle para encontrar la estimación que minimiza la log-verosimilitud negativa
+# mle para encontrar la estimación que minimiza la log-verosimilitud negativa
 result <- mle(neg_log_likelihood, start = list(log_sd = 0), method = "L-BFGS-B")
 
-# Mostrar la estimación de la desviación estándar
+# estimación de la desviación estándar
 estimated_sd <- exp(coef(result)['log_sd'])
 print(estimated_sd)
 ```
 0.9947235
 ```{r}  
 #PREGUNTA 26
-# Definir la desviación estándar conocida
+# Definir desviación estándar conocida
 desviacion_conocida <- 1.149346 # sd(Sample1)=1.149346 
 
-# Calcular el tamaño de la muestra
+# tamaño de la muestra
 n <- length(Sample1)
 
-# Calcular el valor crítico z para un nivel de confianza del 95%
+# valor crítico z para un nivel de confianza del 95%
 z <- qnorm(0.975)
 
-# Calcular el límite inferior del IC.95
+# límite inferior del IC.95
 limite_inferior_IC95 <- mean(Sample1) - z * (desviacion_conocida / sqrt(n))
 
-# Mostrar el resultado
+# resultado
 print(limite_inferior_IC95)
 ```
 4.59781
 ```{r} 
  #PREGUNTA 27
 
-# Definir la desviación estándar conocida
+# desviación estándar conocida
 desviacion_conocida <- 1.149346 # Aquí ingresa el valor de la desviación estándar conocida
 
-# Calcular el tamaño de la muestra
+# tamaño de la muestra
 n <- length(Sample1)
 
-# Calcular el valor crítico z para un nivel de confianza del 95%
+# valor crítico z para un nivel de confianza del 95%
 z <- qnorm(0.975)
 
-# Calcular el límite superior del IC.95
+#  límite superior del IC.95
 limite_superior_IC95 <- mean(Sample1) + z * (desviacion_conocida / sqrt(n))
 
-# Mostrar el resultado
+# resultado
 print(limite_superior_IC95)
 ```
 5.605238
 ```{r} 
  #PREGUNTA 28
-# Definir la media y la desviación estándar conocida
+# media y la desviación estándar conocida
 media <- mean(Sample1)
 desviacion_estandar_conocida <- 1.149346  # Aquí ingresa el valor de la desviación estándar conocida
 
-# Definir el tamaño de la muestra
+# tamaño de la muestra
 n <- length(Sample1)
 
-# Definir el valor z
+# Definir z
 valor_z <- (media - media_poblacional) / (desviacion_estandar_conocida / sqrt(n))
 
-# Calcular el valor p
+# Calcular p
 valor_p <- 2 * (1 - pnorm(abs(valor_z)))
 
-# Mostrar el resultado
+# resultado
 print(valor_p)
 ```
 ```{r} 
@@ -370,7 +369,7 @@ print(valor_p)
 # Definir la media estimada
 media_estimada <- mean(Sample1)
 
-# Mostrar el resultado
+# resultado
 print(media_estimada)
 
 ```
@@ -378,26 +377,26 @@ print(media_estimada)
 
 ```{r} 
  #PREGUNTA 30
-# Realizar un t-test para obtener el intervalo de confianza de la media
+# t-test para obtener el intervalo de confianza de la media
 resultado_t_test <- t.test(Sample1)
 
-# Extraer el límite inferior del intervalo de confianza del 95%
+# límite inferior del intervalo de confianza del 95%
 limite_inferior_ic <- resultado_t_test$conf.int[1]
 
-# Imprimir el resultado
+# resultado
 print(limite_inferior_ic)
 
 ```
 4.563614
 ```{r} 
  #PREGUNTA 31
-# Realizar un t-test para obtener el intervalo de confianza de la media
+# t-test para obtener el intervalo de confianza de la media
 resultado_t_test <- t.test(Sample1)
 
-# Extraer el límite superior del intervalo de confianza del 95%
+#límite superior del intervalo de confianza del 95%
 limite_superior_ic <- resultado_t_test$conf.int[2]
 
-# Imprimir el resultado
+#  resultado
 print(limite_superior_ic)
 
 ```
@@ -405,13 +404,13 @@ print(limite_superior_ic)
 
 ```{r} 
  #PREGUNTA 32
-# Realizar un z-test asumiendo que la desviación estándar de la muestra es una estimación de la población
+# z-test, desviación estándar de la muestra es una estimación de la población
 z_test_result <- z.test(Sample1, stdev = sd(Sample1))
 
-# Obtener el p-valor del z-test
+# p-valor del z-test
 p_valor <- z_test_result$p.value
 
-# Imprimir el p-valor
+# p-valor
 print(p_valor)
 ```
 1.098314e-87
@@ -420,7 +419,7 @@ print(p_valor)
 # Calcular la media muestral
 media_estimada <- mean(Sample1)
 
-# Imprimir la media estimada
+# media estimada
 print(media_estimada)
 
 ```
@@ -443,7 +442,7 @@ chi2_upper <- qchisq(1 - alpha / 2, df = n - 1)
 # Límite inferior del intervalo de confianza para la varianza
 variance_lower_bound <- ((n - 1) * s2) / chi2_upper
 
-# Imprimir el límite inferior del intervalo de confianza para la varianza
+# Imprimir reeultado
 print(variance_lower_bound)
 
 ```
@@ -460,21 +459,21 @@ s2 <- var(Sample1)
 # Nivel de significancia
 alpha <- 0.05
 
-# Cuantiles de la distribución chi-cuadrada para los límites del IC
+# Cuantiles de la distribución chi-cuadrada
 chi2_lower <- qchisq(alpha / 2, df = n - 1)
 chi2_upper <- qchisq(1 - alpha / 2, df = n - 1, lower.tail = TRUE)
 
-# Límite superior del intervalo de confianza para la varianza
+# Límite superior del IC para la varianza
 variance_upper_bound <- ((n - 1) * s2) / chi2_lower
 
-# Imprimir el límite superior del intervalo de confianza para la varianza
+# Imprimir 
 print(variance_upper_bound)
 
 ```
 2.81804
 ```{r}  
 #PREGUNTA 36
-# Calcular la varianza muestral
+# varianza muestral
 varianza_estimada <- var(Sample1)
 
 # Imprimir la varianza estimada
@@ -489,16 +488,16 @@ meanFunc <- function(data, indices) {
   return(mean(data[indices]))
 }
 
-# Configurar el seed para reproducibilidad
+# Configurar el seed 
 set.seed(2023)
 
 # Aplicar Bootstrap para calcular el IC de la media
 bootResult <- boot(sample1, statistic = meanFunc, R = 1000)
 
-# Calcular el intervalo de confianza del 95% usando el método normal
+# intervalo de confianza del 95% usando método normal
 bootCI <- boot.ci(bootResult, conf = 0.95, type = "norm")
 
-# Mostrar el límite inferior del IC
+# límite inferior del IC
 bootCI$normal[2]
 ```
 4.603468
@@ -506,10 +505,10 @@ bootCI$normal[2]
 
 #PREGUNTA 42
 
-# Número de re-muestreos Bootstrap
+# Número de re-muestreos bootstrap
 bootR <- 1000
 
-# Establecer semilla para reproducibilidad
+# semilla para reproducibilidad
 set.seed(2023)
 
 # Función para calcular la media
@@ -520,7 +519,7 @@ boot.mean <- function(data, indices) {
 # Realizar el Bootstrap
 boot.results <- boot(data=Sample1, statistic=boot.mean, R=bootR)
 
-# Calcular el intervalo de confianza del 95% para la media con el método percentil
+# intervalo de confianza del 95% para la media con el método percentil
 boot.ci(boot.results, conf=0.95, type="perc")
 ```
 Level     Percentile     
@@ -531,13 +530,13 @@ Level     Percentile
 meanFunc <- function(data, indices) {
   return(mean(data[indices]))
 }
-# Configurar el seed para reproducibilidad
+# Configurar el seed 
 set.seed(2023)
 
-# Aplicar el método Bootstrap para estimar la media de sample1
+# método Bootstrap para estimar la media de sample1
 bootResult <- boot(sample1, statistic = meanFunc, R = 1000)
 
-# La media estimada se puede obtener directamente de la estadística original del resultado bootstrap
+# La media estimada de la estadística original del resultado bootstrap
 meanEstimate <- bootResult$t0
 
 # Mostrar la media estimada
@@ -547,33 +546,29 @@ meanEstimate
 5.101524
 ```{r} 
  #PREGUNTA 44
-# Definir la función para calcular la varianza
+#función para calcular la varianza
 varFunc <- function(data, indices) {
   return(var(data[indices]))
 }
 
-# Configurar el seed para reproducibilidad
+# Configurar el seed
 set.seed(2023)
 
-# Asegúrate de tener el conjunto de datos 'sample1' definido antes de continuar
-
-# Aplicar el método Bootstrap para calcular la distribución de la varianza muestral
+# calcular la distribución de la varianza muestral
 bootResultVar <- boot(sample1, statistic = varFunc, R = 1000)
 
-# Calcular el intervalo de confianza del 95% usando el método normal
+# intervalo de confianza del 95% usando el método normal
 bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "norm")
 
-# Mostrar el límite inferior del intervalo de confianza del 95% para la varianza
+# Mostrar el límite inferior del IC del 95% para la varianza
 bootCIVar$normal[2]
 
 ```
 0.8130413
 ```{r} 
  #PREGUNTA 45
-# Cargar la librería necesaria
-library(boot)
 
-# Definir la función para calcular la varianza de los datos seleccionados
+# función para calcular la varianza de los datos
 varFunc <- function(data, indices) {
   return(var(data[indices]))
 }
@@ -581,25 +576,26 @@ varFunc <- function(data, indices) {
 # Configurar el seed para reproducibilidad
 set.seed(2023)
 
-# Aplicar el método Bootstrap para calcular la distribución de la varianza muestral
+# método nootstrap para calcular la distribución de la varianza muestral
 bootResultVar <- boot(sample1, statistic = varFunc, R = 1000)
 
-# Calcular el intervalo de confianza del 95% usando el método BCA
+# intervalo de confianza del 95% usando el método BCA
 bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "bca")
 
-# Mostrar el límite superior del intervalo de confianza del 95% para la varianza utilizando 'bca'
+# límite superior del intervalo de confianza del 95% para la varianza utilizando 'bca'
 bootCIVar$bca[5]
 ```
 1.993809
 ```{r} 
  #PREGUNTA 46
+
 # Número de réplicas Bootstrap
 bootR <- 1000
 
-# Establece una semilla para reproducibilidad
+# semilla
 set.seed(2023)
 
-# Inicializa un vector para almacenar las varianzas de las muestras bootstrap
+# Inicializa vector para almacenar las varianzas de las muestras bootstrap
 bootstrap_variances <- numeric(bootR)
 
 # Bucle para generar muestras bootstrap y calcular su varianza
@@ -611,28 +607,26 @@ for (i in 1:bootR) {
   bootstrap_variances[i] <- var(sample_boot)
 }
 
-# Calcula la varianza estimada de las varianzas bootstrap
+# varianza estimada
 estimated_variance <- mean(bootstrap_variances)
 
-# Imprime la varianza estimada
+# resultado
 print(estimated_variance)
 
 ```
 1.250584
 ```{r} 
  #PREGUNTA 47
-# Configurar el seed para reproducibilidad
+# seed para reproducibilidad
 set.seed(2023)
 
-# Asegúrate de que 'Sample2' está definido y es apropiado para tu análisis
-
-# Aplicar el método Bootstrap para estimar la proporción de "Municipal"
+# método bootstrap para estimar la proporción de "Municipal"
 bootResultProp <- boot(Sample2, statistic = propMunicipalFunc, R = 1000)
 
-# Calcular el intervalo de confianza del 95% usando el método normal (norm)
+# intervalo de confianza del 95% usando el método normal
 bootCIPropNorm <- boot.ci(bootResultProp, conf = 0.95, type = "norm")
 
-# Mostrar el límite inferior del intervalo de confianza del 95% con 'norm'
+# límite inferior del intervalo de confianza del 95% con 'norm'
 limite_inferior_norm <- bootCIPropNorm$normal[2]
 
 limite_inferior_norm
@@ -641,18 +635,16 @@ limite_inferior_norm
 0.4956045
 ```{r} 
  #PREGUNTA 48
-# Configurar el seed para reproducibilidad
+# seed para reproducibilidad
 set.seed(2023)
 
-# Asegúrate de que 'Sample2' está definido y es apropiado para tu análisis
-
-# Aplicar el método Bootstrap para estimar la proporción de "Municipal"
+# método Bootstrap para estimar la proporción de "Municipal"
 bootResultProp <- boot(Sample2, statistic = propMunicipalFunc, R = 1000)
 
-# Calcular el intervalo de confianza del 95% usando el método percentil (perc)
+# intervalo de confianza del 95% usando el método percentil
 bootCIPropPerc <- boot.ci(bootResultProp, conf = 0.95, type = "perc")
 
-# Mostrar el valor superior del intervalo de confianza del 95% con 'perc'
+# Mostrar el valor superior
 valor_superior_perc <- bootCIPropPerc$percent[5]
 
 valor_superior_perc
@@ -660,16 +652,16 @@ valor_superior_perc
 0.9
 ```{r} 
  #PREGUNTA 49
-# Convertir a un vector binario donde 1 representa "Municipal" y 0 cualquier otra categoría
+# Convertir a un vector binario
 Sample2_binary <- as.numeric(Sample2 == "Municipal")
 
 # Número de re-muestreos Bootstrap
 bootR <- 1000
 
-# Establecer semilla para reproducibilidad
+# semilla para reproducibilidad
 set.seed(2023)
 
-# Función para calcular la proporción de "Municipal"
+# Función para calcular la proporción de Municipal
 boot.prop <- function(data, indices) {
   sum(data[indices]) / length(indices)
 }
@@ -680,83 +672,83 @@ boot.results <- boot(data=Sample2_binary, statistic=boot.prop, R=bootR)
 # Estimar la proporción
 proporcion_estimada <- mean(boot.results$t)
 
-# Mostrar la proporción estimada
+# resultado
 proporcion_estimada
 ```
 0.6982
 ```{r} 
  #PREGUNTA 50
-# Convertimos Sample2 en un vector lógico indicando si cada elemento es "Municipal"
+# Convertimos Sample2 en un vector lógico
 is_municipal <- Sample2 == "Municipal"
 
-# Separamos Sample1 en dos grupos basados en la clasificación de Municipal vs. No Municipal
+# Separamos Sample1 en dos grupos
 sample1_municipal <- Sample1[is_municipal]
 sample1_no_municipal <- Sample1[!is_municipal]
 
-# Realizamos la prueba t de Welch para la diferencia de medias (var.equal = FALSE por defecto)
+# prueba t de Welch para la diferencia de medias 
 t_test_result <- t.test(sample1_municipal, sample1_no_municipal)
 
-# Extraemos el valor inferior del intervalo de confianza del 95%
+#valor inferior del intervalo de confianza
 lower_bound <- t_test_result$conf.int[1]
 
-# Imprimimos el resultado
+# resultado
 print(lower_bound)
 ```
 -2.434132
 ```{r}
   #PREGUNTA 51
-# Convertir Sample2 en un factor para facilitar el análisis
+# Convertir Sample2 en un factor
 Sample2 <- factor(Sample2)
 
-# Crear un data.frame para facilitar el análisis
+# Crear un data.frame
 data <- data.frame(Sample1, Sample2)
 
-# Dividir Sample1 en dos grupos: Municipal vs No Municipal
+# Dividir Sample1 en dos grupos
 municipal_values <- data$Sample1[data$Sample2 == "Municipal"]
 no_municipal_values <- data$Sample1[data$Sample2 != "Municipal"]
 
-# Realizar el Test t para muestras independientes
+# Test t para muestras independientes
 t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = FALSE)
 
-# Extraer el valor superior del intervalo de confianza del 95%
+# valor superior del intervalo de confianza
 upper_ci_value <- t_test_result$conf.int[2]
 
-# Imprimir el resultado
+# resultado
 print(upper_ci_value)
 ```
 -0.08459783
 ```{r} 
  #PREGUNTA 52
-# Convertimos Sample2 en un vector lógico indicando si cada elemento es "Municipal"
+# Convertimos Sample2 en un vector lógico indicando si cada elemento es Municipal
 is_municipal <- Sample2 == "Municipal"
 
-# Separamos Sample1 en dos grupos basados en la clasificación de Municipal vs. No Municipal
+# Separamos Sample1 en dos grupos
 sample1_municipal <- Sample1[is_municipal]
 sample1_no_municipal <- Sample1[!is_municipal]
 
-# Realizamos la prueba t de Welch para la diferencia de medias
+# prueba t de Welch para la diferencia de medias
 t_test_result <- t.test(sample1_municipal, sample1_no_municipal)
 
 # Extraemos el p-valor de la prueba t
 p_value <- t_test_result$p.value
 
-# Imprimimos el p-valor
+# Imprimimos
 print(p_value)
 ```
 0.03838166
 ```{r}  
 #PREGUNTA 53
-# Convertir Sample2 en un factor para facilitar el análisis
+# Convertir Sample2 en un factor
 Sample2 <- factor(Sample2)
 
-# Crear un data.frame para facilitar el análisis
+# Crear un data.frame
 data <- data.frame(Sample1, Sample2)
 
-# Dividir Sample1 en dos grupos: Municipal vs No Municipal
+# Dividir Sample1 en dos grupos:
 municipal_values <- data$Sample1[data$Sample2 == "Municipal"]
 no_municipal_values <- data$Sample1[data$Sample2 != "Municipal"]
 
-# Realizar el Test t para muestras independientes
+# Test t para muestras independientes
 t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = FALSE)
 
 # Extraer la diferencia de medias estimada
@@ -768,14 +760,13 @@ print(mean_difference)
 -1.259365
 ```{r}  
 #PREGUNTA 54
-# Convertir Sample2 a un factor con dos niveles: "Municipal" y "No Municipal"
+# Convertir Sample2 a un factor con dos niveles
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
-# Crear un dataframe para el análisis
+# dataframe para el análisis
 data <- data.frame(Sample1, Sample2 = as.factor(Sample2))
 
-# Definir la función de estadística para bootstrapping
-# Calcula la diferencia de medias entre dos grupos
+#diferencia de medias entre dos grupos
 diff_means <- function(data, indices) {
   sample_data <- data[indices, ]  # Permite el re-muestreo con reemplazo
   municipal_mean <- mean(sample_data$Sample1[sample_data$Sample2 == "Municipal"])
@@ -783,29 +774,29 @@ diff_means <- function(data, indices) {
   return(municipal_mean - no_municipal_mean)
 }
 
-# Establecer la semilla para reproducibilidad
+# semilla para reproducibilidad
 set.seed(2023)
 
-# Aplicar bootstrapping
+# bootstrapping
 bootstrap_results <- boot(data = data, statistic = diff_means, R = 1000)
 
-# Calcular el intervalo de confianza
+# intervalo de confianza
 boot_ci <- boot.ci(bootstrap_results, conf = 0.95, type = "basic")
 
-# Mostrar el límite inferior del intervalo de confianza del 95%
+# límite inferior del intervalo de confianza del 95%
 cat("L.I.:", boot_ci$basic[4], "\n")
 ```
 -2.266906
 ```{r} 
  #PREGUNTA 55
-# Convertir Sample2 a un factor con dos niveles: "Municipal" y "No Municipal"
+# Convertir Sample2 a un factor con dos niveles
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
-# Crear un dataframe para el análisis
+# Crear un dataframe
 data <- data.frame(Sample1, Sample2 = as.factor(Sample2))
 
-# Definir la función de estadística para bootstrapping
-# Calcula la diferencia de medias entre dos grupos
+# función de estadística para bootstrapping
+# Calcular la diferencia de medias entre dos grupos
 diff_means <- function(data, indices) {
   sample_data <- data[indices, ]  # Permite el re-muestreo con reemplazo
   municipal_mean <- mean(sample_data$Sample1[sample_data$Sample2 == "Municipal"])
@@ -813,10 +804,10 @@ diff_means <- function(data, indices) {
   return(municipal_mean - no_municipal_mean)
 }
 
-# Establecer la semilla para reproducibilidad
+# semilla para reproducibilidad
 set.seed(2023)
 
-# Aplicar bootstrapping
+# bootstrapping
 bootstrap_results <- boot(data = data, statistic = diff_means, R = 1000)
 
 boot_ci_perc <- boot.ci(bootstrap_results, conf = 0.95, type = "perc")
@@ -827,112 +818,112 @@ cat("L.S.:", boot_ci_perc$perc[5], "\n")
 -0.2518238
 ```{r} 
  #PREGUNTA 56
-# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+# Convertir Sample2 en factor con niveles Municipal y No Municipal
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
 # Separar Sample1 en dos grupos según Sample2
 municipal_values <- Sample1[Sample2 == "Municipal"]
 no_municipal_values <- Sample1[Sample2 != "Municipal"]
 
-# Realizar el test t para dos muestras independientes
+# test t para dos muestras independientes
 t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
 
-# Mostrar el p-valor
+# p-valor
 cat("P-valor:", t_test_result$p.value, "\n")
 
 ```
 0.02009517
 ```{r}  
 #PREGUNTA 57
-# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+# Convertir Sample2 en factor con niveles Municipal y No Municipal
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
 # Separar Sample1 en dos grupos según Sample2
 municipal_values <- Sample1[Sample2 == "Municipal"]
 no_municipal_values <- Sample1[Sample2 != "Municipal"]
 
-# Realizar el test t para dos muestras independientes
+# test t para dos muestras independientes
 t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
 
-# Mostrar la diferencia de medias estimada
+# diferencia de medias estimada
 cat("Diferencia de medias estimada:", t_test_result$estimate[1] - t_test_result$estimate[2], "\n")
 
 ```
 -1.259365
 ```{r}
   #PREGUNTA 58
-# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+# Convertir Sample2 en factor con niveles Municipal y No Municipal
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
 # Separar Sample1 en dos grupos según Sample2
 municipal_values <- Sample1[Sample2 == "Municipal"]
 no_municipal_values <- Sample1[Sample2 != "Municipal"]
 
-# Realizar la prueba F para comparar las varianzas
+#prueba F para comparar las varianzas
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
-# Mostrar el valor inferior del intervalo de confianza del 95% para el ratio de varianzas
+# valor inferior del IC
 cat("V.I.:", f_test_result$conf.int[1], "\n")
 
 ```
 0.1248328 
 ```{r} 
  #PREGUNTA 59
-# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+# Convertir Sample2 en factor con niveles Municipal y No Municipal
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
 # Separar Sample1 en dos grupos según Sample2
 municipal_values <- Sample1[Sample2 == "Municipal"]
 no_municipal_values <- Sample1[Sample2 != "Municipal"]
 
-# Realizar la prueba F para comparar las varianzas
+# prueba F para comparar las varianzas
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
-# Mostrar el valor superior del intervalo de confianza del 95% para el ratio de varianzas
+# valor superior del IC del 95% para el ratio de varianzas
 cat("V.S.:", f_test_result$conf.int[2], "\n")
 ```
 3.050489 
 ```{r} 
  #PREGUNTA 60
-# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+# Convertir Sample2 en factor con niveles Municipal y No Municipal
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
 # Separar Sample1 en dos grupos según Sample2
 municipal_values <- Sample1[Sample2 == "Municipal"]
 no_municipal_values <- Sample1[Sample2 != "Municipal"]
 
-# Realizar la prueba F para comparar las varianzas
+# prueba F para comparar las varianzas
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
-# Mostrar el p-valor de la prueba F
+# p-valor
 cat("P-valor:", f_test_result$p.value, "\n")
 ```
 0.6958466
 ```{r} 
  #PREGUNTA 61
-# Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
+# Convertir Sample2 en factor con niveles Municipal y No Municipal
 Sample2 <- ifelse(Sample2 == "Municipal", "Municipal", "No Municipal")
 
 # Separar Sample1 en dos grupos según Sample2
 municipal_values <- Sample1[Sample2 == "Municipal"]
 no_municipal_values <- Sample1[Sample2 != "Municipal"]
 
-# Realizar la prueba F para comparar las varianzas
+# prueba F para comparar las varianzas
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
-# Mostrar el ratio estimado de varianzas
+# ratio estimado de varianzas
 cat("Ratio estimado:", f_test_result$estimate, "\n")
 ```
 0.8098628
 
 ```{r} 
  #PREGUNTA 63
-# Calcular el número de Utilities que NO son Municipales
+# número de Utilities que no son Municipales
 nUT.NM <- sum(Sample2 != "Municipal")
 
 alfa_prior <- 5
 
-# Actualizar la previa con los datos observados para obtener los parámetros a posteriori
+# Actualizar la previa para obtener los parámetros a posteriori
 alfa_posterior <- alfa_prior + nUT.NM
 
 alfa_posterior
@@ -940,7 +931,7 @@ alfa_posterior
 11
 ```{r}
 #pregunta 64
-# Calcular el número de Utilities que NO son Municipales
+# número de Utilities que no son Municipales
 nUT.NM <- sum(Sample2 != "Municipal")
 
 beta_prior <- 10
