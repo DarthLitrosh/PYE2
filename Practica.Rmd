@@ -172,7 +172,7 @@ print(estimador_media)
 ```{r}
 # PREGUNTA 15
 # Calcular la desviación estándar de las medias muestrales
-fitdist(Medias_Muestrales_30, distr = "norm")
+estimador_desviacion <- fitdist(Medias_Muestrales_30, distr = "norm")
 
 # Mostrar el resultado
 print(estimador_desviacion)
