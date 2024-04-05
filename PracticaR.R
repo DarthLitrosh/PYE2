@@ -357,6 +357,7 @@ print(varianza_estimada)
 #PREGUNTA 40
 
 #PREGUNTA 41
+
 # Función para calcular la media
 meanFunc <- function(data, indices) {
   return(mean(data[indices]))
@@ -366,7 +367,7 @@ meanFunc <- function(data, indices) {
 set.seed(2023)
 
 # Aplicar Bootstrap para calcular el IC de la media
-bootResult <- boot(sample1, statistic = meanFunc, R = 1000)
+bootResult <- boot(Sample1, statistic = meanFunc, R = 1000)
 
 # Calcular el intervalo de confianza del 95% usando el método normal
 bootCI <- boot.ci(bootResult, conf = 0.95, type = "norm")
@@ -401,7 +402,7 @@ meanFunc <- function(data, indices) {
 set.seed(2023)
 
 # Aplicar el método Bootstrap para estimar la media de sample1
-bootResult <- boot(sample1, statistic = meanFunc, R = 1000)
+bootResult <- boot(Sample1, statistic = meanFunc, R = 1000)
 
 # La media estimada se puede obtener directamente de la estadística original del resultado bootstrap
 meanEstimate <- bootResult$t0
@@ -422,7 +423,7 @@ set.seed(2023)
 # Asegúrate de tener el conjunto de datos 'sample1' definido antes de continuar
 
 # Aplicar el método Bootstrap para calcular la distribución de la varianza muestral
-bootResultVar <- boot(sample1, statistic = varFunc, R = 1000)
+bootResultVar <- boot(Sample1, statistic = varFunc, R = 1000)
 
 # Calcular el intervalo de confianza del 95% usando el método normal
 bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "norm")
@@ -444,7 +445,7 @@ varFunc <- function(data, indices) {
 set.seed(2023)
 
 # Aplicar el método Bootstrap para calcular la distribución de la varianza muestral
-bootResultVar <- boot(sample1, statistic = varFunc, R = 1000)
+bootResultVar <- boot(Sample1, statistic = varFunc, R = 1000)
 
 # Calcular el intervalo de confianza del 95% usando el método BCA
 bootCIVar <- boot.ci(bootResultVar, conf = 0.95, type = "bca")
