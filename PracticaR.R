@@ -648,7 +648,7 @@ bootstrap_results <- boot(data = data, statistic = diff_means, R = 1000)
 boot_ci <- boot.ci(bootstrap_results, conf = 0.95, type = "basic")
 
 # Mostrar el límite inferior del intervalo de confianza del 95%
-cat("Límite inferior del IC del 95% para la diferencia de medias:", boot_ci$basic[4], "\n")
+cat("L.I.:", boot_ci$basic[4], "\n")
 
 #PREGUNTA 55
 # Convertir Sample2 a un factor con dos niveles: "Municipal" y "No Municipal"
@@ -674,7 +674,7 @@ bootstrap_results <- boot(data = data, statistic = diff_means, R = 1000)
 
 boot_ci_perc <- boot.ci(bootstrap_results, conf = 0.95, type = "perc")
 
-cat("Límite superior del IC del 95% para la diferencia de medias con 'perc':", boot_ci_perc$perc[5], "\n")
+cat("L.S.:", boot_ci_perc$perc[5], "\n")
 
 
 #PREGUNTA 56
@@ -689,7 +689,7 @@ no_municipal_values <- Sample1[Sample2 != "Municipal"]
 t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
 
 # Mostrar el p-valor
-cat("P-valor del test t para la diferencia de medias:", t_test_result$p.value, "\n")
+cat("P-valor:", t_test_result$p.value, "\n")
 
 
 #PREGUNTA 57
@@ -704,7 +704,7 @@ no_municipal_values <- Sample1[Sample2 != "Municipal"]
 t_test_result <- t.test(municipal_values, no_municipal_values, var.equal = TRUE)
 
 # Mostrar la diferencia de medias estimada
-cat("Diferencia de medias estimada (Municipal - No Municipal):", t_test_result$estimate[1] - t_test_result$estimate[2], "\n")
+cat("Diferencia de medias estimada:", t_test_result$estimate[1] - t_test_result$estimate[2], "\n")
 
 
 #PREGUNTA 58
@@ -719,7 +719,7 @@ no_municipal_values <- Sample1[Sample2 != "Municipal"]
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
 # Mostrar el valor inferior del intervalo de confianza del 95% para el ratio de varianzas
-cat("Valor inferior del IC.95 para el ratio de varianzas (Municipal / No Municipal):", f_test_result$conf.int[1], "\n")
+cat("V.I.:", f_test_result$conf.int[1], "\n")
 
 
 #PREGUNTA 59
@@ -734,7 +734,7 @@ no_municipal_values <- Sample1[Sample2 != "Municipal"]
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
 # Mostrar el valor superior del intervalo de confianza del 95% para el ratio de varianzas
-cat("Valor superior del IC.95 para el ratio de varianzas (Municipal / No Municipal):", f_test_result$conf.int[2], "\n")
+cat("V.S.:", f_test_result$conf.int[2], "\n")
 
 #PREGUNTA 60
 # Convertir Sample2 en factor con niveles "Municipal" y "No Municipal"
@@ -748,7 +748,7 @@ no_municipal_values <- Sample1[Sample2 != "Municipal"]
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
 # Mostrar el p-valor de la prueba F
-cat("P-valor de la prueba F (Municipal vs No Municipal):", f_test_result$p.value, "\n")
+cat("P-valor:", f_test_result$p.value, "\n")
 
 
 #PREGUNTA 61
@@ -763,7 +763,7 @@ no_municipal_values <- Sample1[Sample2 != "Municipal"]
 f_test_result <- var.test(municipal_values, no_municipal_values)
 
 # Mostrar el ratio estimado de varianzas
-cat("Ratio estimado de varianzas (Municipal / No Municipal):", f_test_result$estimate, "\n")
+cat("Ratio estimado:", f_test_result$estimate, "\n")
 
 #PREGUNTA 62
 
