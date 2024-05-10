@@ -77,6 +77,9 @@ cat("Pregunta 13: P-value = ", t_test_equal_Q3$p.value, "\n")
 #PREGUNTA 14 
 #PREGUNTA 15 
 #PREGUNTA 16 
+n <- length(Sample1)
+degrees_of_freedom_var <- n - 1
+cat("Pregunta 16: Grados de libertad = ", degrees_of_freedom_var, "\n")
 #PREGUNTA 17 
 #PREGUNTA 18 
 #PREGUNTA 19 
