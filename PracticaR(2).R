@@ -108,3 +108,26 @@ cat("Pregunta 26: P-value = ", pearson_result$p.value, "\n")
 #PREGUNTA 29 
 #PREGUNTA 30 
 #PREGUNTA 31 
+#PREGUNAT 32
+# Datos para Sample1
+Sample1 <- c(1.149219, 0.7403627, 1.705864, 0.30103, 1.305351, 1.399674, 1.245513, 1.313867, 2.531479, 1.457882, 3.562673, 0, 1.586587, 1.176091, 0, 1.900367, 0, 0.8750613, 0, 0.2787536)
+
+# Calcular Q3
+Q3 <- quantile(Sample1, 0.75)
+cat("Pregunta 32: Q3 = ", Q3, "\n")
+
+#PREGUNTA 33
+#PREGUNTA 34
+#PREGUNTA 35
+#PREGUNTA 36 
+# Calcular Q1 de Sample1
+Q1_Sample1 <- quantile(Sample1, 0.25)
+
+# Prueba t
+t_test_below_Q1 <- t.test(Sample1, mu = Q1_Sample1, alternative = "less")
+cat("Pregunta 36: Estadístico t = ", t_test_below_Q1$statistic, "\n")
+
+#PREGUNAT 37
+#PREGUNTA 38
+#PREGUNTA 39
+#PREGUNTA 40
