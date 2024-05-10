@@ -98,6 +98,12 @@ cat("Pregunta 22: Q1 = ", Q1, "\n")
 
 #PREGUNTA 23 
 #PREGUNTA 24 
+# Realiza la prueba Pearson chi-square para normalidad
+pearson_test <- pearson.test(sample1)
+
+# Estadístico chi-cuadrado
+pearson_test$statistic
+
 #PREGUNTA 25 
 #PREGUNTA 26 
 # P-value de la prueba de Pearson
