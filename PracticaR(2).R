@@ -100,6 +100,9 @@ cat("Pregunta 22: Q1 = ", Q1, "\n")
 #PREGUNTA 24 
 #PREGUNTA 25 
 #PREGUNTA 26 
+# P-value de la prueba de Pearson
+cat("Pregunta 26: P-value = ", pearson_result$p.value, "\n")
+
 #PREGUNTA 27 
 #PREGUNTA 28 
 #PREGUNTA 29 
