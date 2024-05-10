@@ -84,3 +84,16 @@ cat("Pregunta 16: Grados de libertad = ", degrees_of_freedom_var, "\n")
 #PREGUNTA 18 
 #PREGUNTA 19 
 #PREGUNTA 20 
+#PREGUNTA 21  
+degrees_of_freedom_var <- n - 1
+cat("Pregunta 21: Grados de libertad = ", degrees_of_freedom_var, "\n")
+#PREGUNTA 22
+#PREGUNTA 23 
+#PREGUNTA 24 
+#PREGUNTA 25 
+#PREGUNTA 26 
+#PREGUNTA 27 
+#PREGUNTA 28 
+#PREGUNTA 29 
+#PREGUNTA 30 
+#PREGUNTA 31 
