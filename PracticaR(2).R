@@ -80,6 +80,7 @@ cat("Pregunta 13: P-value = ", t_test_equal_Q3$p.value, "\n")
 n <- length(Sample1)
 degrees_of_freedom_var <- n - 1
 cat("Pregunta 16: Grados de libertad = ", degrees_of_freedom_var, "\n")
+
 #PREGUNTA 17 
 #PREGUNTA 18 
 #PREGUNTA 19 
@@ -87,7 +88,11 @@ cat("Pregunta 16: Grados de libertad = ", degrees_of_freedom_var, "\n")
 #PREGUNTA 21  
 degrees_of_freedom_var <- n - 1
 cat("Pregunta 21: Grados de libertad = ", degrees_of_freedom_var, "\n")
+
 #PREGUNTA 22
+Q1 <- quantile(Sample1, 0.25)
+cat("Pregunta 22: Q1 = ", Q1, "\n")
+
 #PREGUNTA 23 
 #PREGUNTA 24 
 #PREGUNTA 25 
