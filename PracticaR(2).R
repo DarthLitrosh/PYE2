@@ -52,10 +52,28 @@ t_test_below_Q3 <- t.test(Sample1, alternative = "greater", mu = Q3)
 cat("Pregunta 8: Estadístico t = ", t_test_below_Q3$statistic, "\n")
 
 #PREGUNTA 9 
+degrees_of_freedom_Q3 <- length(Sample1) - 1
+cat("Pregunta 9: Grados de libertad = ", degrees_of_freedom_Q3, "\n")
+
 #PREGUNTA 10 
+# Calcular el p-value para H0: mu < Q3 contra H1: mu >= Q3
+Q3 <- quantile(Sample1, 0.75)
+t_test_below_Q3 <- t.test(Sample1, alternative = "greater", mu = Q3)
+cat("Pregunta 10: P-value = ", t_test_below_Q3$p.value, "\n")
+
 #PREGUNTA 11 
+# Calcular el estadístico t para H0: mu == Q3 contra H1: mu != Q3
+t_test_equal_Q3 <- t.test(Sample1, mu = Q3)
+cat("Pregunta 11: Estadístico t = ", t_test_equal_Q3$statistic, "\n")
+
 #PREGUNTA 12 
-#PREGUNTA 12 
+# Los grados de libertad son los mismos para todas las pruebas t con esta muestra
+cat("Pregunta 12: Grados de libertad = ", degrees_of_freedom_Q3, "\n")
+
+#PREGUNTA 13 
+# Calcular el p-value para H0: mu == Q3 contra H1: mu != Q3
+cat("Pregunta 13: P-value = ", t_test_equal_Q3$p.value, "\n")
+
 #PREGUNTA 14 
 #PREGUNTA 15 
 #PREGUNTA 16 
