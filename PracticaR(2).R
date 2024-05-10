@@ -128,6 +128,28 @@ t_test_below_Q1 <- t.test(Sample1, mu = Q1_Sample1, alternative = "less")
 cat("Pregunta 36: Estadístico t = ", t_test_below_Q1$statistic, "\n")
 
 #PREGUNAT 37
+# Grados de libertad para la prueba t
+df_t_test <- length(Sample1) - 1
+cat("Pregunta 37: Grados de libertad = ", df_t_test, "\n")
+
 #PREGUNTA 38
+# Prueba t p-value
+p_value_t_test <- t_test_below_Q1$p.value
+cat("Pregunta 38: p-value = ", p_value_t_test, "\n")
+
 #PREGUNTA 39
+# Suponiendo que Sample1 ya está definido
+Sample1 <- c(1.149219, 0.7403627, 1.705864, 0.30103, 1.305351, 1.399674, 1.245513, 1.313867, 2.531479, 1.457882, 3.562673, 0, 1.586587, 1.176091, 0, 1.900367, 0, 0.8750613, 0, 0.2787536)
+Q1_Sample1 <- quantile(Sample1, 0.25)
+
+# Realizar la prueba t
+t_test_greater_Q1 <- t.test(Sample1, mu = Q1_Sample1, alternative = "greater")
+
+# Mostrar el estadístico t
+cat("Pregunta 39: Estadístico t = ", t_test_greater_Q1$statistic, "\n")
+
 #PREGUNTA 40
+# Grados de libertad para la prueba t
+df_t_test <- length(Sample1) - 1
+cat("Pregunta 40: Grados de libertad = ", df_t_test, "\n")
+
