@@ -42,7 +42,15 @@ t_statistic <- (mean_sample1 - Q1_sample1) / (sd_sample1 / sqrt(n))
 t_statistic
 
 #PREGUNTA 4
-
+# Calcular el primer cuartil (Q1)
+Q1 <- quantile(sample1, 0.25)
+# Prueba t unilateral para H0: mu > Q1, H1: mu <= Q1
+t_test_result <- t.test(sample1, mu = Q1, alternative = "less")
+# Calcular los grados de libertad
+n <- length(sample1) - 1
+# Imprimir grados de libertad
+print(n)
+                        
 #PREGUNTA 5
 # Calcular Q1 (primer cuartil)
 Q1_sample1 <- quantile(Sample1, probs = 0.25)
