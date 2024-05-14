@@ -13,6 +13,159 @@ library(TeachingDemos)
 library(boot)
 library(stats4)
 
+# muestra de datos
+Sample1 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
+
+#PREGUNTA 1
+# Calcular Q1
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# resultado
+Q1_sample1
+
+#PREGUNTA 2
+# Calcular Q3
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# resultado
+Q3_sample1
+
+#PREGUNTA 3
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Realizar la prueba t para H0: mu > Q1, H1: mu <= Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "less"
+# Calcular el estadístico t manualmente
+n <- length(Sample1)
+mean_sample1 <- mean(Sample1)
+sd_sample1 <- sd(Sample1)
+t_statistic <- (mean_sample1 - Q1_sample1) / (sd_sample1 / sqrt(n))
+# Mostrar los resultados
+Q1_sample1
+t_statistic
+
+#PREGUNTA 4
+
+#PREGUNTA 5
+
+#PREGUNTA 6
+
+#PREGUNTA 7
+
+#PREGUNTA 8
+
+#PREGUNTA 9
+
+#PREGUNTA 10
+
+#PREGUNTA 11
+
+#PREGUNTA 12
+
+#PREGUNTA 13
+
+#PREGUNTA 14
+
+#PREGUNTA 15
+
+#PREGUNTA 16
+
+#PREGUNTA 17
+
+#PREGUNTA 18
+
+#PREGUNTA 19
+
+#PREGUNTA 20
+
+#PREGUNTA 21
+
+#PREGUNTA 22
+
+#PREGUNTA 23
+
+#PREGUNTA 24
+
+#PREGUNTA 25
+
+#PREGUNTA 26
+
+#PREGUNTA 27
+
+#PREGUNTA 28
+
+#PREGUNTA 29
+
+#PREGUNTA 30
+
+#PREGUNTA 31
+
+#PREGUNTA 32
+
+#PREGUNTA 33
+
+#PREGUNTA 34
+
+#PREGUNTA 35
+
+#PREGUNTA 36
+
+#PREGUNTA 37
+
+#PREGUNTA 38
+
+#PREGUNTA 39
+
+#PREGUNTA 40
+
+#PREGUNTA 41
+
+#PREGUNTA 42
+
+#PREGUNTA 43
+
+#PREGUNTA 44
+
+#PREGUNTA 45
+
+#PREGUNTA 46
+
+#PREGUNTA 47
+
+#PREGUNTA 48
+
+#PREGUNTA 49
+
+#PREGUNTA 50
+
+#PREGUNTA 51
+
+#PREGUNTA 52
+
+
+#PREGUNTA 53
+
+#PREGUNTA 54
+
+#PREGUNTA 55
+
+#PREGUNTA 56
+
+#PREGUNTA 57
+
+#PREGUNTA 58
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Definir la muestra de datos
 Sample1 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
 Sample2 <- c("Municipal", "Municipal", "Municipal", "Political Subdivision", "Municipal", "Municipal", "Municipal", "Municipal", "Behind the Meter", "Municipal", "Municipal", "Municipal", "Retail Power Marketer", "Municipal", "Investor Owned", "Cooperative", "Cooperative", "Municipal", "Municipal", "Municipal")
