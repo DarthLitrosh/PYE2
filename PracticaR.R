@@ -39,101 +39,414 @@ mean_sample1 <- mean(Sample1)
 sd_sample1 <- sd(Sample1)
 t_statistic <- (mean_sample1 - Q1_sample1) / (sd_sample1 / sqrt(n))
 # Mostrar los resultados
-Q1_sample1
 t_statistic
 
 #PREGUNTA 4
 
 #PREGUNTA 5
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Realizar la prueba t para H0: mu > Q1, H1: mu <= Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "less")
+# Extraer el p-valor
+p_value <- t_test_result$p.value
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El p-valor de la prueba t es:", p_value))
 
 #PREGUNTA 6
-
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Calcular la media y desviación estándar de la muestra
+mean_sample1 <- mean(Sample1)
+sd_sample1 <- sd(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular el estadístico t manualmente
+t_statistic <- (mean_sample1 - Q1_sample1) / (sd_sample1 / sqrt(n))
+# Realizar la prueba t para H0: mu < Q1, H1: mu >= Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "greater")
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El estadístico t calculado es:", t_statistic))
+                        
 #PREGUNTA 7
-
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+#Calcular los grados de libertad
+df <- n - 1
+# Realizar la prueba t para H0: mu < Q1, H1: mu >= Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "greater")
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El tamaño de la muestra (n) es:", n))
+print(paste("Los grados de libertad (n-1) son:", df))
+                        
 #PREGUNTA 8
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Realizar la prueba t para H0: mu < Q1, H1: mu >= Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "greater")
+# Extraer el p-valor
+p_value <- t_test_result$p.value
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El p-valor de la prueba t es:", p_value))
 
+                        
 #PREGUNTA 9
-
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Calcular la media y desviación estándar de la muestra
+mean_sample1 <- mean(Sample1)
+sd_sample1 <- sd(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular el estadístico t manualmente
+t_statistic <- (mean_sample1 - Q1_sample1) / (sd_sample1 / sqrt(n))
+# Realizar la prueba t para H0: mu == Q1, H1: mu != Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "two.sided")
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El estadístico t calculado es:", t_statistic))
+                        
 #PREGUNTA 10
-
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular los grados de libertad
+df <- n - 1
+# Realizar la prueba t para H0: mu == Q1, H1: mu != Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "two.sided")
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El tamaño de la muestra (n) es:", n))
+print(paste("Los grados de libertad (n-1) son:", df))
+                        
 #PREGUNTA 11
-
+# Calcular Q1 (primer cuartil)
+Q1_sample1 <- quantile(Sample1, probs = 0.25)
+# Realizar la prueba t para H0: mu == Q1, H1: mu != Q1
+t_test_result <- t.test(Sample1, mu = Q1_sample1, alternative = "two.sided")
+# Extraer el p-valor
+p_value <- t_test_result$p.value
+# Mostrar los resultados
+print(paste("El primer cuartil (Q1) de Sample1 es:", Q1_sample1))
+print(paste("El p-valor de la prueba t es:", p_value))
+                        
 #PREGUNTA 12
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Calcular la media y desviación estándar de la muestra
+mean_sample1 <- mean(Sample1)
+sd_sample1 <- sd(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular el estadístico t manualmente
+t_statistic <- (mean_sample1 - Q3_sample1) / (sd_sample1 / sqrt(n))
+# Realizar la prueba t para H0: mu > Q3, H1: mu <= Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "less")
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El estadístico t calculado es:", t_statistic))
+print(t_test_result)
+                        
 #PREGUNTA 13
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular los grados de libertad
+df <- n - 1
+# Realizar la prueba t para H0: mu > Q3, H1: mu <= Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "less")
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El tamaño de la muestra (n) es:", n))
+print(paste("Los grados de libertad (n-1) son:", df))
+                        
 #PREGUNTA 14
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Realizar la prueba t para H0: mu > Q3, H1: mu <= Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "less")
+# Extraer el p-valor
+p_value <- t_test_result$p.value
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El p-valor de la prueba t es:", p_value))
+                        
 #PREGUNTA 15
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Calcular la media y desviación estándar de la muestra
+mean_sample1 <- mean(Sample1)
+sd_sample1 <- sd(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular el estadístico t manualmente
+t_statistic <- (mean_sample1 - Q3_sample1) / (sd_sample1 / sqrt(n))
+# Realizar la prueba t para H0: mu < Q3, H1: mu >= Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "greater")
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El estadístico t calculado es:", t_statistic))
+                        
 #PREGUNTA 16
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular los grados de libertad
+df <- n - 1
+# Realizar la prueba t para H0: mu < Q3, H1: mu >= Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "greater")
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El tamaño de la muestra (n) es:", n))
+print(paste("Los grados de libertad (n-1) son:", df))
+                        
 #PREGUNTA 17
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Realizar la prueba t para H0: mu < Q3, H1: mu >= Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "greater")
+# Extraer el p-valor
+p_value <- t_test_result$p.value
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El p-valor de la prueba t es:", p_value))
+                        
 #PREGUNTA 18
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Calcular la media y desviación estándar de la muestra
+mean_sample1 <- mean(Sample1)
+sd_sample1 <- sd(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular el estadístico t manualmente
+t_statistic <- (mean_sample1 - Q3_sample1) / (sd_sample1 / sqrt(n))
+# Realizar la prueba t para H0: mu == Q3, H1: mu != Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "two.sided")
+# Mostrar los resultados
+print(paste("El estadístico t calculado es:", t_statistic))
+                        
 #PREGUNTA 19
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular los grados de libertad
+df <- n - 1
+# Realizar la prueba t para H0: mu == Q3, H1: mu != Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "two.sided")
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El tamaño de la muestra (n) es:", n))
+print(paste("Los grados de libertad (n-1) son:", df))
+                        
 #PREGUNTA 20
-
+# Calcular Q3 (tercer cuartil)
+Q3_sample1 <- quantile(Sample1, probs = 0.75)
+# Realizar la prueba t para H0: mu == Q3, H1: mu != Q3
+t_test_result <- t.test(Sample1, mu = Q3_sample1, alternative = "two.sided")
+# Extraer el p-valor
+p_value <- t_test_result$p.value
+# Mostrar los resultados
+print(paste("El tercer cuartil (Q3) de Sample1 es:", Q3_sample1))
+print(paste("El p-valor de la prueba t es:", p_value))
+                        
 #PREGUNTA 21
-
+# Calcular la varianza muestral
+var_sample1 <- var(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Varianza bajo la hipótesis nula
+var_h0 <- 1
+# Calcular el estadístico d
+d_statistic <- (n - 1) * var_sample1 / var_h0
+# Mostrar los resultados
+print(paste("La varianza muestral (s^2) es:", var_sample1))
+print(paste("El tamaño de la muestra (n) es:", n))
+print(paste("El estadístico d calculado es:", d_statistic))
+                      
 #PREGUNTA 22
-
+# Calcular la varianza muestral
+var_sample1 <- var(Sample1)
+# Calcular el tamaño de la muestra
+n <- length(Sample1)
+# Calcular los grados de libertad
+df <- n - 1
+# Varianza bajo la hipótesis nula
+var_h0 <- 1
+# Calcular el estadístico d
+d_statistic <- (n - 1) * var_sample1 / var_h0
+# Mostrar los resultados
+print(paste("Los grados de libertad (n-1) son:", df))
+                       
 #PREGUNTA 23
 
+                  
 #PREGUNTA 24
-
+# Calcular las medias y desviaciones estándar de las muestras
+mean_sample1 <- mean(Sample1)
+mean_sample2 <- mean(Sample2)
+sd_sample1 <- sd(Sample1)
+sd_sample2 <- sd(Sample2)
+# Calcular el tamaño de las muestras
+n1 <- length(Sample1)
+n2 <- length(Sample2)
+# Calcular el estadístico t para dos muestras independientes
+pooled_sd <- sqrt(((n1 - 1) * sd_sample1^2 + (n2 - 1) * sd_sample2^2) / (n1 + n2 - 2))
+t_statistic <- (mean_sample1 - mean_sample2) / (pooled_sd * sqrt(1/n1 + 1/n2))
+# Realizar la prueba t para dos muestras independientes
+t_test_result <- t.test(Sample1, Sample2, alternative = "two.sided", var.equal = TRUE)
+# Mostrar los resultados
+print(paste("El estadístico t calculado es:", t_statistic))
+                        
 #PREGUNTA 25
 
+                        
 #PREGUNTA 26
-
+# Realizar la prueba t para dos muestras independientes
+t_test_result <- t.test(Sample1, Sample2, alternative = "two.sided", var.equal = TRUE)
+# Mostrar el p-valor de la prueba t
+print(t_test_result$p.value)
+                        
 #PREGUNTA 27
+# Calcular las varianzas muestrales
+var_sample1 <- var(Sample1)
+var_sample2 <- var(Sample2)
+# Calcular el estadístico F
+F_statistic <- var_sample1 / var_sample2
+# Mostrar el estadístico F calculado
+print(F_statistic)
 
+                        
 #PREGUNTA 28
-
+# Calcular el tamaño de las muestras
+n1 <- length(Sample1)
+n2 <- length(Sample2)
+# Calcular los grados de libertad
+df1 <- n1 - 1
+df2 <- n2 - 1
+# Mostrar los grados de libertad
+print(paste("Grados de libertad para Sample1 (df1):", df1))
+print(paste("Grados de libertad para Sample2 (df2):", df2))
+                        
 #PREGUNTA 29
-
+# Prueba de varianzas
+var_test_result <- var.test(sample1, sample2)
+# Imprimir p-value
+print(var_test_result$p.value)
+                        
 #PREGUNTA 30
-
+# Prueba de Pearson para normalidad
+library(nortest)
+pearson_test_result <- pearson.test(sample3)
+# Imprimir estadístico Pearson chi-square
+print(pearson_test_result$statistic)
+                        
 #PREGUNTA 31
-
+# Prueba de Pearson para normalidad
+library(nortest)
+pearson_test_result <- pearson.test(sample3)
+# Imprimir número de clases usadas en el test
+print(pearson_test_result$n.classes)
+                        
 #PREGUNTA 32
-
+# Prueba de Pearson para normalidad
+library(nortest)
+pearson_test_result <- pearson.test(sample3)
+# Imprimir p-value
+print(pearson_test_result$p.value)
+                        
 #PREGUNTA 33
-
+# Prueba Kolmogorov-Smirnov para normalidad
+ks_test_result <- ks.test(sample3, "pnorm", mean(sample3), sd(sample3))
+# Imprimir estadístico de la prueba Kolmogorov-Smirnov
+print(ks_test_result$statistic)
+                       
 #PREGUNTA 34
-
+# Prueba Kolmogorov-Smirnov para normalidad
+ks_test_result <- ks.test(sample3, "pnorm", mean(sample3), sd(sample3))
+# Imprimir p-value de la prueba Kolmogorov-Smirnov
+print(ks_test_result$p.value)
+                       
 #PREGUNTA 35
-
+# Crear tabla de frecuencias observadas
+observed <- table(sample4)
+# Número de categorías
+n <- length(observed)
+# Crear distribución uniforme discreta esperada
+expected <- rep(sum(observed) / n, n)
+# Prueba chi-cuadrado de homogeneidad
+chi_sq_test_result <- chisq.test(observed, p = expected / sum(expected))
+# Imprimir estadístico chi-squared
+print(chi_sq_test_result$statistic)
+                        
 #PREGUNTA 36
-
+# Crear tabla de frecuencias observadas
+observed <- table(sample4)
+# Prueba chi-cuadrado de homogeneidad
+chi_sq_test_result <- chisq.test(observed, p = rep(1/length(observed), length(observed)))
+# Imprimir grados de libertad
+print(chi_sq_test_result$parameter)
+                        
 #PREGUNTA 37
-
+# Crear tabla de frecuencias observadas
+observed <- table(sample4)
+# Prueba chi-cuadrado de homogeneidad
+chi_sq_test_result <- chisq.test(observed, p = rep(1/length(observed), length(observed)))
+# Imprimir p-value
+print(chi_sq_test_result$p.value)
+                        
 #PREGUNTA 38
-
+# Prueba de Wilcoxon para muestras no pareadas (Mann-Whitney)
+wilcox_test_result <- wilcox.test(sample5, sample6)
+# Imprimir estadístico de la prueba de Wilcoxon
+print(wilcox_test_result$statistic)
+                        
 #PREGUNTA 39
 
+                        
 #PREGUNTA 40
-
+# Prueba de Wilcoxon para muestras no apareadas (Mann-Whitney)
+wilcox_test_result <- wilcox.test(sample5, sample6)
+# Imprimir p-value de la prueba de Wilcoxon
+print(wilcox_test_result$p.value)
+                        
 #PREGUNTA 41
 
+                        
 #PREGUNTA 42
 
+                        
 #PREGUNTA 43
 
+                        
 #PREGUNTA 44
 
+                        
 #PREGUNTA 45
 
+                        
 #PREGUNTA 46
 
+                        
 #PREGUNTA 47
 
+                        
 #PREGUNTA 48
 
+                        
 #PREGUNTA 49
 
+                        
 #PREGUNTA 50
 
 #PREGUNTA 51
