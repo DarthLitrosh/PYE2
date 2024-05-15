@@ -414,6 +414,12 @@ chi_sq_test_result <- chisq.test(observed, p = rep(1/length(observed), length(ob
 print(chi_sq_test_result$p.value)
                         
 #PREGUNTA 38
+# Definir los vectores de datos
+Sample5 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 
+             6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
+
+Sample6 <- c(4.144823, 6.016923, 4.582143, 4.365151, 4.403069, 4.126845, 4.761123, 6.210473, 5.3924, 4.326786, 
+             7.038215, 6.206891, 5.409031, 5.185587, 5.468273, 5.248758, 5.12194, 5.378915, 4.730653, 5.358759)
 # Prueba de Wilcoxon para muestras no pareadas (Mann-Whitney)
 wilcox_test_result <- wilcox.test(sample5, sample6)
 # Imprimir estadístico de la prueba de Wilcoxon
@@ -435,20 +441,51 @@ print(wilcox_test_result$p.value)
 
                         
 #PREGUNTA 43
+# Definir los vectores de datos
+Uses.Retail <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 
+                 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
+Uses.Losses <- c(3.937016, 0, 0, 5.298058, 3.027757, 2.78746, 4.387194, 3.648555, 0, 0, 
+                 5.630245, 0, 5.370224, 3.713407, 5.402688, 4.52952, 3.969229, 3.88167, 0, 3.615634)
+
+# Crear el modelo de regresión lineal
+model <- lm(Uses.Losses ~ Uses.Retail)
+summary(model)
+# Calcular Beta0 (intercepto)
+Beta0 <- coef(model)[1]
+Beta0
 
                         
 #PREGUNTA 44
 
                         
 #PREGUNTA 45
+# Calcular R2
+R2 <- summary(model)$r.squared
+R2
 
                         
 #PREGUNTA 46
+# Calcular el p-valor del contraste de hipótesis de Beta0 == 0
+p_value_Beta0 <- summary(model)$coefficients[1, 4]
+p_value_Beta0
 
                         
 #PREGUNTA 47
+# Calcular el p-valor del contraste de hipótesis de Beta1 == 0
+p_value_Beta1 <- summary(model)$coefficients[2, 4]
+p_value_Beta1
 
-                        
+#PREVIO A LA 48 EN ADELANTE-----------------------------
+# Definir los vectores de datos
+Uses.Retail <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 
+                 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
+Uses.Losses <- c(3.937016, 0, 0, 5.298058, 3.027757, 2.78746, 4.387194, 3.648555, 0, 0, 
+                 5.630245, 0, 5.370224, 3.713407, 5.402688, 4.52952, 3.969229, 3.88167, 0, 3.615634)
+
+# Crear el modelo de regresión lineal
+model <- lm(Uses.Losses ~ Uses.Retail)
+summary(model)
+                       
 #PREGUNTA 48
 
                         
@@ -456,6 +493,10 @@ print(wilcox_test_result$p.value)
 
                         
 #PREGUNTA 50
+# Calcular la estimación puntual de la predicción del mínimo de Uses.Retail
+min_Uses_Retail <- min(Uses.Retail)
+prediction_min <- predict(model, newdata = data.frame(Uses.Retail = min_Uses_Retail))
+prediction_min
 
 #PREGUNTA 51
 
@@ -463,12 +504,31 @@ print(wilcox_test_result$p.value)
 
 
 #PREGUNTA 53
+# Definir los vectores de datos
+Uses.Retail <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 
+                 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
+Uses.Losses <- c(3.937016, 0, 0, 5.298058, 3.027757, 2.78746, 4.387194, 3.648555, 0, 0, 
+                 5.630245, 0, 5.370224, 3.713407, 5.402688, 4.52952, 3.969229, 3.88167, 0, 3.615634)
+
+# Crear el modelo de regresión lineal
+model <- lm(Uses.Losses ~ Uses.Retail)
+summary(model)
+
+# Calcular la estimación puntual de la predicción de la media de Uses.Retail
+mean_Uses_Retail <- mean(Uses.Retail)
+prediction_mean <- predict(model, newdata = data.frame(Uses.Retail = mean_Uses_Retail))
+prediction_mean
 
 #PREGUNTA 54
 
 #PREGUNTA 55
 
 #PREGUNTA 56
+# Calcular la estimación puntual de la predicción del máximo de Uses.Retail
+max_Uses_Retail <- max(Uses.Retail)
+prediction_max <- predict(model, newdata = data.frame(Uses.Retail = max_Uses_Retail))
+prediction_max
+
 
 #PREGUNTA 57
 
