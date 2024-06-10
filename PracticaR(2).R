@@ -20,7 +20,9 @@ Sample2 <- c(4.144823, 6.016923, 4.582143, 4.365151, 4.403069, 4.126845, 4.76112
 
 Sample3 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
 
-Sample4 <- c(Municipal, Cooperative, Municipal, Municipal, Municipal, Municipal, Municipal, Cooperative, Municipal, Municipal, Political Subdivision, Investor Owned, Municipal, Cooperative, Cooperative, Municipal, Retail Power Marketer, Municipal, Municipal, Cooperative)
+Sample4 <- c("Municipal", "Cooperative", "Municipal", "Municipal", "Municipal", "Municipal", "Municipal", "Cooperative", 
+             "Municipal", "Municipal", "Political Subdivision", "Investor Owned", "Municipal", "Cooperative", 
+             "Cooperative", "Municipal", "Retail Power Marketer", "Municipal", "Municipal", "Cooperative")
 
 Sample5 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 
              6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
@@ -370,46 +372,46 @@ print(paste("Grados de libertad para Sample2 (df2):", df2))
                         
 #PREGUNTA 29
 # Prueba de varianzas
-var_test_result <- var.test(sample1, sample2)
+var_test_result <- var.test(Sample1, Sample2)
 # Imprimir p-value
 print(var_test_result$p.value)
                         
 #PREGUNTA 30
 # Prueba de Pearson para normalidad
 library(nortest)
-pearson_test_result <- pearson.test(sample3)
+pearson_test_result <- pearson.test(Sample3)
 # Imprimir estadístico Pearson chi-square
 print(pearson_test_result$statistic)
                         
 #PREGUNTA 31
 # Prueba de Pearson para normalidad
 library(nortest)
-pearson_test_result <- pearson.test(sample3)
+pearson_test_result <- pearson.test(Sample3)
 # Imprimir número de clases usadas en el test
 print(pearson_test_result$n.classes)
                         
 #PREGUNTA 32
 # Prueba de Pearson para normalidad
 library(nortest)
-pearson_test_result <- pearson.test(sample3)
+pearson_test_result <- pearson.test(Sample3)
 # Imprimir p-value
 print(pearson_test_result$p.value)
                         
 #PREGUNTA 33
 # Prueba Kolmogorov-Smirnov para normalidad
-ks_test_result <- ks.test(sample3, "pnorm", mean(sample3), sd(sample3))
+ks_test_result <- ks.test(Sample3, "pnorm", mean(Sample3), sd(Sample3))
 # Imprimir estadístico de la prueba Kolmogorov-Smirnov
 print(ks_test_result$statistic)
                        
 #PREGUNTA 34
 # Prueba Kolmogorov-Smirnov para normalidad
-ks_test_result <- ks.test(sample3, "pnorm", mean(sample3), sd(sample3))
+ks_test_result <- ks.test(Sample3, "pnorm", mean(Sample3), sd(Sample3))
 # Imprimir p-value de la prueba Kolmogorov-Smirnov
 print(ks_test_result$p.value)
                        
 #PREGUNTA 35
 # Crear tabla de frecuencias observadas
-observed <- table(sample4)
+observed <- table(Sample4)
 # Número de categorías
 n <- length(observed)
 # Crear distribución uniforme discreta esperada
@@ -421,7 +423,7 @@ print(chi_sq_test_result$statistic)
                         
 #PREGUNTA 36
 # Crear tabla de frecuencias observadas
-observed <- table(sample4)
+observed <- table(Sample4)
 # Prueba chi-cuadrado de homogeneidad
 chi_sq_test_result <- chisq.test(observed, p = rep(1/length(observed), length(observed)))
 # Imprimir grados de libertad
@@ -429,7 +431,7 @@ print(chi_sq_test_result$parameter)
                         
 #PREGUNTA 37
 # Crear tabla de frecuencias observadas
-observed <- table(sample4)
+observed <- table(Sample4)
 # Prueba chi-cuadrado de homogeneidad
 chi_sq_test_result <- chisq.test(observed, p = rep(1/length(observed), length(observed)))
 # Imprimir p-value
@@ -437,7 +439,7 @@ print(chi_sq_test_result$p.value)
                         
 #PREGUNTA 38
 # Prueba de Wilcoxon para muestras no pareadas (Mann-Whitney)
-wilcox_test_result <- wilcox.test(sample5, sample6)
+wilcox_test_result <- wilcox.test(Sample5, Sample6)
 # Imprimir estadístico de la prueba de Wilcoxon
 print(wilcox_test_result$statistic)
                         
@@ -446,7 +448,7 @@ print(wilcox_test_result$statistic)
                         
 #PREGUNTA 40
 # Prueba de Wilcoxon para muestras no apareadas (Mann-Whitney)
-wilcox_test_result <- wilcox.test(sample5, sample6)
+wilcox_test_result <- wilcox.test(Sample5, Sample6)
 # Imprimir p-value de la prueba de Wilcoxon
 print(wilcox_test_result$p.value)
                         
