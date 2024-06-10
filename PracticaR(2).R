@@ -20,7 +20,7 @@ Sample2 <- c(4.144823, 6.016923, 4.582143, 4.365151, 4.403069, 4.126845, 4.76112
 
 Sample3 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
 
-Sample4 <- c(Municipal, Cooperative, Municipal, Municipal, Municipal, Municipal, Municipal, Cooperative, Municipal, Municipal, Political Subdivision, Investor Owned, Municipal, Cooperative, Cooperative, Municipal, Retail Power Marketer, Municipal, Municipal, Cooperative);
+Sample4 <- c(Municipal, Cooperative, Municipal, Municipal, Municipal, Municipal, Municipal, Cooperative, Municipal, Municipal, Political Subdivision, Investor Owned, Municipal, Cooperative, Cooperative, Municipal, Retail Power Marketer, Municipal, Municipal, Cooperative)
 
 Sample5 <- c(5.243546, 3.624798, 4.597245, 6.814677, 4.32791, 4.259092, 5.952399, 5.114901, 4.316348, 3.831358, 
              6.958219, 4.113977, 6.531121, 4.84677, 7.125954, 6.052483, 5.057894, 5.444031, 3.220108, 4.597651)
